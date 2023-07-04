@@ -5,8 +5,7 @@ from glob import glob
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget
 from Nsmc.src.view.main_ui import Ui_MainApp as mp
-# from AutoSigner.sub_ui import Ui_Form as sp
-import Nsmc.src.macro as macro
+import Nsmc.src.macro as mc
 import Nsmc.src.view.main_rc
 
 AUTO_DICT = dict()
@@ -21,17 +20,29 @@ class MainWindow(QMainWindow, mp):
         self.setWindowIcon(QIcon(":/img/fox.svg"))
 
         self.set_signal()
+        self.show_alter("off")
 
 
     def set_signal(self):
-        self.Form_downbar_get.clicked.connect(macro.get_form_file)
-        self.Tutorial_Push.clicked.connect(macro.show_how_to_use)
-        self.Macro_push_1.clicked.connect(lambda state, index=1: macro.run_macro(index))
-        self.Macro_push_2.clicked.connect(lambda state, index=2: macro.run_macro(index))
-        self.Macro_push_3.clicked.connect(lambda state, index=3: macro.run_macro(index))
-        self.Macro_push_4.clicked.connect(lambda state, index=4: macro.run_macro(index))
-        self.Macro_push_5.clicked.connect(lambda state, index=5: macro.run_macro(index))
-        self.Macro_push_6.clicked.connect(lambda state, index=6: macro.run_macro(index))
+        mc_run = mc.run_upload()
+
+        self.Form_downbar_get.clicked.connect(mc.get_form_file)
+        self.Tutorial_Push.clicked.connect(mc.show_how_to_use)
+        self.Macro_push_1.clicked.connect(mc_run.run_haengbal_final)
+        self.Macro_push_2.clicked.connect(mc_run.run_gyogwa_final)
+        self.Macro_push_3.clicked.connect(mc_run.run_gyogwa_final)
+        self.Macro_push_4.clicked.connect(mc_run.run_gyogwa_step)
+        self.Macro_push_5.clicked.connect(mc_run.run_gyogwa_final)
+        self.Macro_push_6.clicked.connect(mc_run.run_gyogwa_final)
+
+    def show_alter(self, status: str = "off"):
+        if status == "off":
+            self.black.setEnabled(False)
+            self.black.hide()
+        else:
+            self.black.setEnabled(True)
+            self.black._raise()
+            self.black.show()
 
 
 if __name__ == "__main__":
@@ -43,7 +54,7 @@ if __name__ == "__main__":
 
 
 """
-pyuic5 ./AutoSigner/sub.ui -o ./AutoSigner/sub_ui.py
+pyuic5 ./Nsmc/src/view/main.ui -o ./Nsmc/src/view/main_ui.py
 pyuic5 ./AutoSigner/main.ui -o ./AutoSigner/main_ui.py
 pyrcc5 ./AutoSigner/main.qrc -o ./AutoSigner/main_rc.py
 pyinstaller -w -F --log-level=WARN --hidden-import AutoSigner/main_ui.py --hidden-import AutoSigner/main_rc.py --icon=./AutoSigner/icon.ico "AutoSig.exe" ./AutoSigner/main.py

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file './Nsmc/src/view/main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -20,7 +20,7 @@ class Ui_MainApp(object):
         MainApp.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainApp)
         self.centralwidget.setStyleSheet("QWidget {background: white; margin: 0px; padding:0px}\n"
-"QLabel {background: transparent; font: 30px \"나눔스퀘어 ExtraBold\"; color: black;}\n"
+"QLabel {background: transparent; font: 20px \"나눔스퀘어 ExtraBold\"; color: black;}\n"
 "#Body_Search {display:none;}")
         self.centralwidget.setObjectName("centralwidget")
         self.Topbar = QtWidgets.QWidget(self.centralwidget)
@@ -69,7 +69,8 @@ class Ui_MainApp(object):
         self.Topbar_island_title = QtWidgets.QLabel(self.Topbar_island)
         self.Topbar_island_title.setEnabled(False)
         self.Topbar_island_title.setGeometry(QtCore.QRect(10, 16, 261, 31))
-        self.Topbar_island_title.setStyleSheet(".QLabel {font: 22px \"나눔스퀘어 ExtraBold\"; color: white;}")
+        self.Topbar_island_title.setStyleSheet(".QLabel {font: 22px \"나눔스퀘어 ExtraBold\"; color: white;}\n"
+"")
         self.Topbar_island_title.setAlignment(QtCore.Qt.AlignCenter)
         self.Topbar_island_title.setIndent(-1)
         self.Topbar_island_title.setObjectName("Topbar_island_title")
@@ -101,11 +102,16 @@ class Ui_MainApp(object):
 "\n"
 ".QWidget .QWidget .QPushButton#Form_downbar_get:hover {background:rgba(52, 120, 245, 100); color: #ffffff}\n"
 "\n"
-".QWidget #Form_download_grid {margin:0px; padding:0px}")
+".QWidget #Form_download_grid {margin:0px; padding:0px}\n"
+"QWidget {margin:0px; padding:0px}")
         self.Form_downbar.setObjectName("Form_downbar")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.Form_downbar)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.widget = QtWidgets.QWidget(self.Form_downbar)
+        self.widget.setObjectName("widget")
+        self.verticalLayout.addWidget(self.widget)
         self.FormName = QtWidgets.QLabel(self.Form_downbar)
         self.FormName.setMaximumSize(QtCore.QSize(16777215, 40))
         self.FormName.setObjectName("FormName")
@@ -121,7 +127,7 @@ class Ui_MainApp(object):
         self.Searchbar_layout.setObjectName("Searchbar_layout")
         self.Form_downbar_info = QtWidgets.QWidget(self.Form_downbar_grid)
         self.Form_downbar_info.setMinimumSize(QtCore.QSize(350, 0))
-        self.Form_downbar_info.setStyleSheet("QLabel#Form_id {font: 20px \"나눔스퀘어 Bold\"}\n"
+        self.Form_downbar_info.setStyleSheet("QLabel#Form_id {font: 18px \"나눔스퀘어 Bold\"}\n"
 "QLabel#Form_info {font: 14px \"나눔스퀘어\"; color: #989799}")
         self.Form_downbar_info.setObjectName("Form_downbar_info")
         self.Form_id = QtWidgets.QLabel(self.Form_downbar_info)
@@ -413,19 +419,42 @@ class Ui_MainApp(object):
         self.verticalLayout_2.addWidget(self.Macrobar_scroll)
         self.Tutorial = QtWidgets.QWidget(self.centralwidget)
         self.Tutorial.setEnabled(True)
-        self.Tutorial.setGeometry(QtCore.QRect(120, 820, 240, 60))
-        self.Tutorial.setMinimumSize(QtCore.QSize(240, 60))
-        self.Tutorial.setMaximumSize(QtCore.QSize(240, 120))
+        self.Tutorial.setGeometry(QtCore.QRect(1, 760, 498, 140))
+        self.Tutorial.setMinimumSize(QtCore.QSize(498, 140))
+        self.Tutorial.setMaximumSize(QtCore.QSize(240, 140))
         self.Tutorial.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.Tutorial.setStyleSheet(".QWidget {background:rgb(52, 120, 245);border-radius:30px;background-repeat:none;}\n"
-".QWidget:hover  {background:rgba(52, 120, 245, 100)}\n"
+        self.Tutorial.setStyleSheet(".QWidget #Tutorial_widget {background:rgb(52, 120, 245);border-radius:30px;background-repeat:none;}\n"
+".QWidget #Tutorial_widget:hover  {background:rgba(52, 120, 245, 100)}\n"
 "#Tutorial_grid {margin:0px; padding:0px; background:transparent}\n"
 "#Tutorial_info_title {color:white;font:18px; background:transparent}\n"
 ".QPushButton {background:transparent}")
         self.Tutorial.setObjectName("Tutorial")
-        self.Tutorial_grid = QtWidgets.QWidget(self.Tutorial)
-        self.Tutorial_grid.setGeometry(QtCore.QRect(20, 10, 200, 40))
-        self.Tutorial_grid.setMinimumSize(QtCore.QSize(200, 40))
+        self.FormName_2 = QtWidgets.QLabel(self.Tutorial)
+        self.FormName_2.setGeometry(QtCore.QRect(50, 17, 401, 33))
+        self.FormName_2.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.FormName_2.setStyleSheet("font: 20px")
+        self.FormName_2.setObjectName("FormName_2")
+        self.label_2 = QtWidgets.QLabel(self.Tutorial)
+        self.label_2.setGeometry(QtCore.QRect(316, 20, 161, 20))
+        self.label_2.setStyleSheet("font: 18px ;color:#e32c4a")
+        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.Tutorial)
+        self.label_3.setGeometry(QtCore.QRect(10, 0, 471, 191))
+        self.label_3.setStyleSheet("background: rgb(223, 223, 224); border-radius: 20px;")
+        self.label_3.setText("")
+        self.label_3.setObjectName("label_3")
+        self.label = QtWidgets.QLabel(self.Tutorial)
+        self.label.setGeometry(QtCore.QRect(0, 10, 491, 191))
+        self.label.setStyleSheet("background: rgb(238, 238, 239); border-radius: 20px;")
+        self.label.setText("")
+        self.label.setObjectName("label")
+        self.Tutorial_widget = QtWidgets.QWidget(self.Tutorial)
+        self.Tutorial_widget.setGeometry(QtCore.QRect(120, 60, 251, 61))
+        self.Tutorial_widget.setObjectName("Tutorial_widget")
+        self.Tutorial_grid = QtWidgets.QWidget(self.Tutorial_widget)
+        self.Tutorial_grid.setGeometry(QtCore.QRect(27, 10, 200, 40))
+        self.Tutorial_grid.setMinimumSize(QtCore.QSize(0, 40))
         self.Tutorial_grid.setMaximumSize(QtCore.QSize(240, 40))
         self.Tutorial_grid.setStyleSheet("")
         self.Tutorial_grid.setObjectName("Tutorial_grid")
@@ -447,39 +476,51 @@ class Ui_MainApp(object):
         self.Tutorial_info_title.setAlignment(QtCore.Qt.AlignCenter)
         self.Tutorial_info_title.setObjectName("Tutorial_info_title")
         self.Searchbar_layout_3.addWidget(self.Tutorial_info_title)
-        self.Tutorial_Push = QtWidgets.QPushButton(self.Tutorial)
-        self.Tutorial_Push.setGeometry(QtCore.QRect(0, 0, 240, 60))
+        self.Tutorial_Push = QtWidgets.QPushButton(self.Tutorial_widget)
+        self.Tutorial_Push.setGeometry(QtCore.QRect(0, 0, 251, 60))
         self.Tutorial_Push.setMinimumSize(QtCore.QSize(0, 60))
         self.Tutorial_Push.setText("")
         self.Tutorial_Push.setObjectName("Tutorial_Push")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(4, 770, 491, 191))
-        self.label.setStyleSheet("background: rgb(238, 238, 239); border-radius: 20px;")
-        self.label.setText("")
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(320, 780, 161, 20))
-        self.label_2.setStyleSheet("font: 18px ;color:#e32c4a")
-        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(14, 760, 471, 191))
-        self.label_3.setStyleSheet("background: rgb(223, 223, 224); border-radius: 20px;")
-        self.label_3.setText("")
-        self.label_3.setObjectName("label_3")
-        self.FormName_2 = QtWidgets.QLabel(self.centralwidget)
-        self.FormName_2.setGeometry(QtCore.QRect(50, 780, 401, 33))
-        self.FormName_2.setMaximumSize(QtCore.QSize(16777215, 40))
-        self.FormName_2.setStyleSheet("font: 20px")
-        self.FormName_2.setObjectName("FormName_2")
+        self.label_2.raise_()
         self.label_3.raise_()
         self.label.raise_()
+        self.FormName_2.raise_()
+        self.Tutorial_widget.raise_()
+        self.black = QtWidgets.QWidget(self.centralwidget)
+        self.black.setGeometry(QtCore.QRect(0, 0, 501, 901))
+        self.black.setStyleSheet(".QWidget {background: rgba(0,0,0,150)}\n"
+"#infobox {background: white; border-radius: 20px;}\n"
+"#infobox_title {font:17px; color: \"#ff3227\"}\n"
+"#infobox_detail {font:17px; color: \"#8b8b8f\"}\n"
+"#infobox_confirm {background: transparent; font: 20px \"나눔스퀘어 ExtraBold\"; color:rgb(52, 120, 245)}\n"
+"#infobox_confirm:hover {color:rgba(52, 120, 245, 100)}")
+        self.black.setObjectName("black")
+        self.infobox = QtWidgets.QWidget(self.black)
+        self.infobox.setGeometry(QtCore.QRect(60, 270, 381, 201))
+        self.infobox.setObjectName("infobox")
+        self.line = QtWidgets.QFrame(self.infobox)
+        self.line.setGeometry(QtCore.QRect(0, 120, 381, 16))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.infobox_title = QtWidgets.QLabel(self.infobox)
+        self.infobox_title.setGeometry(QtCore.QRect(0, 40, 381, 20))
+        self.infobox_title.setTextFormat(QtCore.Qt.AutoText)
+        self.infobox_title.setAlignment(QtCore.Qt.AlignCenter)
+        self.infobox_title.setObjectName("infobox_title")
+        self.infobox_confirm = QtWidgets.QPushButton(self.infobox)
+        self.infobox_confirm.setGeometry(QtCore.QRect(0, 128, 381, 71))
+        self.infobox_confirm.setObjectName("infobox_confirm")
+        self.infobox_detail = QtWidgets.QLabel(self.infobox)
+        self.infobox_detail.setGeometry(QtCore.QRect(0, 70, 381, 20))
+        self.infobox_detail.setTextFormat(QtCore.Qt.AutoText)
+        self.infobox_detail.setAlignment(QtCore.Qt.AlignCenter)
+        self.infobox_detail.setObjectName("infobox_detail")
         self.Form_downbar.raise_()
         self.Topbar.raise_()
         self.Macro.raise_()
         self.Tutorial.raise_()
-        self.label_2.raise_()
-        self.FormName_2.raise_()
+        self.black.raise_()
         MainApp.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainApp)
@@ -507,7 +548,11 @@ class Ui_MainApp(object):
         self.Macro_describes_5.setText(_translate("MainApp", "자동봉진 특기사항"))
         self.Macro_labels_6.setText(_translate("MainApp", "개발 요청"))
         self.Macro_describes_6.setText(_translate("MainApp", "필요한 업로드 요청해주세요"))
-        self.Tutorial_info_title.setText(_translate("MainApp", "사용법 확인하기"))
-        self.label_2.setText(_translate("MainApp", "Dev.Gonyo"))
         self.FormName_2.setText(_translate("MainApp", "앗, 어떻게 사용해야 하나요?"))
+        self.label_2.setText(_translate("MainApp", "Dev.Gonyo"))
+        self.Tutorial_info_title.setText(_translate("MainApp", "사용법 확인하기"))
+        self.infobox_title.setText(_translate("MainApp", "업로드를 실행할 수 없습니다."))
+        self.infobox_confirm.setText(_translate("MainApp", "OK"))
+        self.infobox_detail.setText(_translate("MainApp", "나이스가 켜져 있는지 확인해주세요."))
+
 import Nsmc.src.view.main_rc
