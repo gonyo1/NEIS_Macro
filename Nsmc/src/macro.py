@@ -31,6 +31,7 @@ def get_file():
                 path = os.path.join(img_dir, name)
                 os.rename(file, path)
 
+
 def open_form_file():
     origin_dir = os.path.realpath("./Nsmc/src/data")
     os.startfile(origin_dir)

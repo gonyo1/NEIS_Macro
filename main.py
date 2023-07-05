@@ -1,7 +1,6 @@
 # pip install pyqt5 pywin32 pyinstaller pyautogui pyperclip tinyaes
 
 import sys
-import os
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from Nsmc.src.view.main_ui import Ui_MainApp as mp
@@ -69,18 +68,9 @@ class MainWindow(QMainWindow, mp):
 
 
 def my_exception_hook(exctype, value, traceback):
-    # Print the error and traceback
     print(exctype, value, traceback)
-    # Call the normal Exception hook after
     sys._excepthook(exctype, value, traceback)
     # sys.exit(1)
-
-# try:
-#
-#
-#     os.system('sudo dpkg -i *.xlsx > /Nsmc/src/data')
-# except:
-#     os.chdir(os.getcwd())
 
 
 if __name__ == "__main__":
@@ -93,8 +83,7 @@ if __name__ == "__main__":
 
 """
 pyuic5 ./Nsmc/src/view/main.ui -o ./Nsmc/src/view/main_ui.py
-pyuic5 ./AutoSigner/main.ui -o ./AutoSigner/main_ui.py
-pyrcc5 ./AutoSigner/main.qrc -o ./AutoSigner/main_rc.py
+pyrcc5 ./Nsmc/src/view/main.qrc -o ./Nsmc/src/view/main_rc.py
 pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/view/fox.ico main.py
 
 """

@@ -651,6 +651,10 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
+           <zorder>Macro_labels_2</zorder>
+           <zorder>Macro_describes_2</zorder>
+           <zorder>Macro_icon_2</zorder>
+           <zorder>Macro_push_2</zorder>
           </widget>
          </item>
          <item row="0" column="0">
@@ -765,6 +769,10 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
+           <zorder>Macro_labels_1</zorder>
+           <zorder>Macro_describes_1</zorder>
+           <zorder>Macro_icon_1</zorder>
+           <zorder>Macro_push_1</zorder>
           </widget>
          </item>
          <item row="1" column="0">
@@ -880,6 +888,10 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
+           <zorder>Macro_labels_3</zorder>
+           <zorder>Macro_describes_3</zorder>
+           <zorder>Macro_icon_3</zorder>
+           <zorder>Macro_push_3</zorder>
           </widget>
          </item>
          <item row="1" column="1">
@@ -994,6 +1006,10 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
+           <zorder>Macro_labels_4</zorder>
+           <zorder>Macro_describes_4</zorder>
+           <zorder>Macro_icon_4</zorder>
+           <zorder>Macro_push_4</zorder>
           </widget>
          </item>
          <item row="2" column="0">
@@ -1108,6 +1124,10 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
+           <zorder>Macro_labels_5</zorder>
+           <zorder>Macro_describes_5</zorder>
+           <zorder>Macro_icon_5</zorder>
+           <zorder>Macro_push_5</zorder>
           </widget>
          </item>
          <item row="2" column="1">
@@ -1225,6 +1245,10 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
+           <zorder>Macro_labels_6</zorder>
+           <zorder>Macro_describes_6</zorder>
+           <zorder>Macro_icon_6</zorder>
+           <zorder>Macro_push_6</zorder>
           </widget>
          </item>
         </layout>
