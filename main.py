@@ -7,8 +7,8 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget
 from Nsmc.src.view.main_ui import Ui_MainApp as mp
 import Nsmc.src.macro as mc
 import Nsmc.src.view.main_rc
+from PyQt5.QtCore import QThread, pyqtSignal
 
-AUTO_DICT = dict()
 
 
 class MainWindow(QMainWindow, mp):
@@ -18,22 +18,27 @@ class MainWindow(QMainWindow, mp):
         self.show()
         self.setWindowTitle("  NEIS Macro by Gonyo (Released 2023.7.5.)")
         self.setWindowIcon(QIcon(":/img/fox.svg"))
+        self.show_alter("off")
+        self.mcr_object = mc.MacroThread(self)
+        self.mcr_object.threadEvent.connect(self.mcr_end_event)
 
         self.set_signal()
-        self.show_alter("off")
-
 
     def set_signal(self):
-        mc_run = mc.run_upload()
 
         self.Form_downbar_get.clicked.connect(mc.get_form_file)
         self.Tutorial_Push.clicked.connect(mc.show_how_to_use)
-        self.Macro_push_1.clicked.connect(mc_run.run_haengbal_final)
-        self.Macro_push_2.clicked.connect(mc_run.run_gyogwa_final)
-        self.Macro_push_3.clicked.connect(mc_run.run_gyogwa_final)
-        self.Macro_push_4.clicked.connect(mc_run.run_gyogwa_step)
-        self.Macro_push_5.clicked.connect(mc_run.run_gyogwa_final)
-        self.Macro_push_6.clicked.connect(mc_run.run_gyogwa_final)
+        self.Macro_push_1.clicked.connect(lambda state, index=1: self.run_upload_thread(index))
+        self.Macro_push_2.clicked.connect(lambda state, index=2: self.run_upload_thread(index))
+
+    def run_upload_thread(self, index: int = 0):
+        print("clicked")
+        self.show_alter("on")
+        self.mcr_object.selector = index
+        self.mcr_object.start()
+
+    def mcr_end_event(self):
+        self.show_alter("off")
 
     def show_alter(self, status: str = "off"):
         if status == "off":
@@ -41,17 +46,25 @@ class MainWindow(QMainWindow, mp):
             self.black.hide()
         else:
             self.black.setEnabled(True)
-            self.black._raise()
+            self.black.raise_()
             self.black.show()
 
+
+def my_exception_hook(exctype, value, traceback):
+    # Print the error and traceback
+    print(exctype, value, traceback)
+    # Call the normal Exception hook after
+    sys._excepthook(exctype, value, traceback)
+    # sys.exit(1)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     # sub_win = SubWindow()
     main_win = MainWindow()
     # main_win.M_info.clicked.connect(sub_win.show)
+    sys._excepthook = sys.excepthook
+    sys.excepthook = my_exception_hook
     sys.exit(app.exec_())
-
 
 """
 pyuic5 ./Nsmc/src/view/main.ui -o ./Nsmc/src/view/main_ui.py

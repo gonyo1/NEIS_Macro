@@ -4,8 +4,9 @@ from ctypes import windll
 import win32com.client as win32
 import pyperclip
 import pyautogui
-# import pythoncom
+import pythoncom
 import time
+from PyQt5.QtCore import QThread, pyqtSignal
 
 
 def get_form_file():
@@ -18,84 +19,94 @@ def show_how_to_use():
     os.startfile(path)
 
 
-class run_upload:
-    # 기본 데이터
-    copy_entire_data_from_xlsx = []
-    copy_data_one_student = ''
-    web_title = "4세대 지능형 나이스 시스템"
-    how_many_Tab = 0
-    is_override = 1
-    speed = 0.1
+class MacroThread(QThread):
+    threadEvent = pyqtSignal()
 
-    def __init__(self):
-        self.shell = None
+    def __init__(self, parent=None):
+        super().__init__()
+        # 기본 데이터
+        self.main = parent
+        self.copy_entire_data_from_xlsx = []
+        self.copy_data_one_student = ''
+        self.web_title = "4세대 지능형 나이스 시스템"
+        self.how_many_Tab = 0
+        self.is_override = 1
+        self.speed = 0.1
+        self.evaluate_step = 3
+        self.selector = 0
 
-    def NEIS_activate(self):
+    def run(self):
+        if self.selector == 0:
+            print("Error100:index id does not given")
+        elif self.selector == 1:
+            print("Success101:행발:종합의견 업로드를 시작합니다.")
+            self.how_many_Tab = 1
+        elif self.selector == 2:
+            print("Success102:교과:학기말종합의견 업로드를 시작합니다.")
+            self.how_many_Tab = 2
+        elif self.selector == 3:
+            print("Error103:행발:누가기록 업로드를 시작합니다.")
+        elif self.selector == 4:
+            print("Error103:교과:영역별 교과평가 업로드를 시작합니다.")
+            self.how_many_Tab = 1
+            self.eval_step_list = list(range(self.evaluate_step + 1))
+
+        # NEIS SELECTOR
+        pythoncom.CoInitialize()
         shell = win32.Dispatch('WScript.Shell')
-        shell.AppActivate(self.web_title)
+        shell.AppActivate("4세대 지능형 나이스 시스템")
 
-        return shell
-
-    @staticmethod
-    def get_data_from_clipboard():
+        # get_data_from_clipboard
         copy_data = pyperclip.paste()
         evaluate_list = [str(i) for i in copy_data.splitlines()]
 
-        return evaluate_list
+        # do something by one data
+        for i, data in enumerate(evaluate_list):
+            for tab in range(self.how_many_Tab):
+                shell.SendKeys('{TAB}')
+                time.sleep(self.speed)
 
-    def send_tabs(self, how_many_Tab: int = 0):
-        for i in range(how_many_Tab):
-            self.shell.SendKeys('{TAB}')
-            time.sleep(self.speed)
-        time.sleep(self.speed * 3)
+            if (self.selector == 1) or (self.selector == 2):
+                # do override or addride
+                if self.is_override == 1:
+                    # 덮어쓰기
+                    pyautogui.keyDown('ctrl')
+                    pyautogui.press('a')
+                    pyautogui.keyUp('ctrl')
+                    pyautogui.press('del')
+                else:
+                    # 이어쓰기
+                    pyautogui.press('end')
+                    pyautogui.press('space')
+                time.sleep(self.speed)
 
-    def copy_and_paste_data_to_NEIS(self, data):
-        # copy
-        data = data.strip()
-        pyperclip.copy(data)
-        time.sleep(self.speed * 3)
+                # copy
+                data = data.strip()
+                pyperclip.copy(data)
+                time.sleep(self.speed)
 
-        # paste
-        pyautogui.keyDown('ctrl')
-        pyautogui.press('v')
-        pyautogui.keyUp('ctrl')
-        pyautogui.press('tab')
-        time.sleep(self.speed * 3)
-
-    def run_haengbal_final(self):
-        print("행발:종합의견을 업로드 합니다.")
-        self.shell = self.NEIS_activate()
-        self.copy_entire_data_from_xlsx = self.get_data_from_clipboard()
-
-        for i, data in enumerate(self.copy_entire_data_from_xlsx):
-            self.send_tabs(how_many_Tab=1)
-
-            # is_override -> 덮어쓰기 : 1 / 이어쓰기 : 2
-            if not self.is_override == 1:
-                pyautogui.press('end')
-                pyautogui.press('space')
-
-            self.copy_and_paste_data_to_NEIS(data)
-
-
-    def run_gyogwa_final(self):
-        print("교과:학기말종합의견을 업로드 합니다.")
-        self.shell = self.NEIS_activate()
-        self.copy_entire_data_from_xlsx = self.get_data_from_clipboard()
-
-        for i, data in enumerate(self.copy_entire_data_from_xlsx):
-            self.send_tabs(how_many_Tab=2)
-
-            if self.is_override == 1:  # 교과 / 창체 / 덮어쓰기
+                # paste
                 pyautogui.keyDown('ctrl')
-                pyautogui.press('a')
+                pyautogui.press('v')
                 pyautogui.keyUp('ctrl')
-                pyautogui.press('del')
-            else:
-                pyautogui.press('end')
-                pyautogui.press('space')
+                time.sleep(self.speed)
 
-            self.copy_and_paste_data_to_NEIS(data)
+                # move to next row
+                shell.SendKeys('{TAB}')
+                time.sleep(self.speed)
+            elif self.selector == 4:
+                for grade in range(self.eval_step_list[int(data)]):
+                    shell.SendKeys('{DOWN}')
+                    time.sleep(self.speed * 2)
+
+                shell.SendKeys('{TAB}')
+                time.sleep(self.speed)
+                shell.SendKeys('{TAB}')
+                time.sleep(self.speed)
+
+        self.threadEvent.emit()
+
+class Name:
             
     def run_gyogwa_step(self, step: int = 3):
         print("교과:영역별 교과평가를 업로드 합니다.")
