@@ -14,7 +14,7 @@ Types if import:
 IMPORTANT: Do NOT post this list to the issue-tracker. Use it as a basis for
             tracking down the missing module yourself. Thanks!
 
-missing module named 'win32com.gen_py' - imported by win32com (conditional, optional), D:\Users\anaconda\envs\py-nsmc\lib\site-packages\PyInstaller\hooks\rthooks\pyi_rth_win32comgenpy.py (top-level)
+missing module named 'win32com.gen_py' - imported by win32com (conditional, optional), C:\Users\Gonyo\anaconda3\envs\NEIS_Macro\lib\site-packages\PyInstaller\hooks\rthooks\pyi_rth_win32comgenpy.py (top-level)
 missing module named 'org.python' - imported by copy (optional), xml.sax (delayed, conditional)
 missing module named _frozen_importlib_external - imported by importlib._bootstrap (delayed), importlib (optional), importlib.abc (optional)
 excluded module named _frozen_importlib - imported by importlib (optional), importlib.abc (optional)
@@ -30,7 +30,7 @@ missing module named _winreg - imported by platform (delayed, optional)
 missing module named readline - imported by cmd (delayed, conditional, optional), code (delayed, conditional, optional), pdb (delayed, optional)
 missing module named org - imported by pickle (optional)
 missing module named grp - imported by shutil (optional), tarfile (optional), pathlib (delayed)
-missing module named pyimod03_importers - imported by D:\Users\anaconda\envs\py-nsmc\lib\site-packages\PyInstaller\hooks\rthooks\pyi_rth_pkgutil.py (top-level)
+missing module named pyimod03_importers - imported by C:\Users\Gonyo\anaconda3\envs\NEIS_Macro\lib\site-packages\PyInstaller\hooks\rthooks\pyi_rth_pkgutil.py (top-level)
 missing module named 'Xlib.XK' - imported by pyautogui._pyautogui_x11 (top-level)
 missing module named 'Xlib.ext' - imported by pyautogui._pyautogui_x11 (top-level)
 missing module named Xlib - imported by mouseinfo (conditional), pyautogui._pyautogui_x11 (top-level)

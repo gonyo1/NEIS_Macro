@@ -25,7 +25,7 @@ class MainWindow(QMainWindow, mp):
 
     def set_signal(self):
 
-        self.Form_downbar_get.clicked.connect(mc.get_form_file)
+        self.Form_downbar_get.clicked.connect(mc.open_form_file)
         self.Tutorial_Push.clicked.connect(mc.show_how_to_use)
         self.Macro_push_1.clicked.connect(lambda state, index=1: self.run_upload_thread(index))
         self.Macro_push_2.clicked.connect(lambda state, index=2: self.run_upload_thread(index))
@@ -55,7 +55,6 @@ class MainWindow(QMainWindow, mp):
         self.infobox_title.setStyleSheet("color: rgb(52, 120, 245)")
         self.infobox_detail.setText("7월 중에는 업데이트하여 재배포 예정")
 
-
     def show_alter(self, status: str = "off"):
         if status == "off":
             self.infobox_title.setStyleSheet(self.infobox_title.original_stylesheet)
@@ -76,18 +75,18 @@ def my_exception_hook(exctype, value, traceback):
     sys._excepthook(exctype, value, traceback)
     # sys.exit(1)
 
-try:
-    os.makedirs('./Nsmc/src/data', exist_ok=True)
-    os.chdir(sys._MEIPASS)
-    os.system('sudo dpkg -i *.xlsx > /Nsmc/src/data')
-except:
-    os.chdir(os.getcwd())
+# try:
+#
+#
+#     os.system('sudo dpkg -i *.xlsx > /Nsmc/src/data')
+# except:
+#     os.chdir(os.getcwd())
+
 
 if __name__ == "__main__":
+    mc.get_file()
     app = QApplication(sys.argv)
-    # sub_win = SubWindow()
     main_win = MainWindow()
-    # main_win.M_info.clicked.connect(sub_win.show)
     sys._excepthook = sys.excepthook
     sys.excepthook = my_exception_hook
     sys.exit(app.exec_())
@@ -96,6 +95,6 @@ if __name__ == "__main__":
 pyuic5 ./Nsmc/src/view/main.ui -o ./Nsmc/src/view/main_ui.py
 pyuic5 ./AutoSigner/main.ui -o ./AutoSigner/main_ui.py
 pyrcc5 ./AutoSigner/main.qrc -o ./AutoSigner/main_rc.py
-pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/특기사항.xlsx;." --add-data="./Nsmc/src/data/누가기록.xlsx;." --icon=./Nsmc/src/view/fox.ico main.py
+pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/view/fox.ico main.py
 
 """

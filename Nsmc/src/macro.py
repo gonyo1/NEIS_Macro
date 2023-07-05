@@ -1,4 +1,5 @@
-import os
+import os, glob
+import sys
 import win32com.client as win32
 import pyperclip
 import pyautogui
@@ -7,15 +8,32 @@ import time
 from PyQt5.QtCore import QThread, pyqtSignal
 
 
-def get_form_file():
-    if not os.path.isdir(os.path.realpath("./Nsmc")):
-        os.mkdir(os.path.realpath("./Nsmc"))
-    if not os.path.isdir(os.path.realpath("./Nsmc/src")):
-        os.mkdir(os.path.realpath("./Nsmc/src"))
-    if not os.path.isdir(os.path.realpath("./Nsmc/src/data")):
-        os.mkdir(os.path.realpath("./Nsmc/src/data"))
-    path = os.path.realpath("./Nsmc/src/data")
-    os.startfile(path)
+def get_file():
+    base_dir = sys._MEIPASS
+
+    os.makedirs('./Nsmc/src/data', exist_ok=True)
+    os.makedirs('./Nsmc/src/img', exist_ok=True)
+
+    data_dir = os.path.realpath("./Nsmc/src/data")
+    img_dir = os.path.realpath("./Nsmc/src/img")
+
+    if not os.path.isfile("./Nsmc/src/data/특기사항.xlsx"):
+        for file in os.listdir(base_dir):
+            if file.endswith(".xlsx"):
+                name = os.path.basename(file)
+                file = os.path.join(base_dir, name)
+                path = os.path.join(data_dir, name)
+                os.rename(file, path)
+
+            if file.endswith(".png"):
+                name = os.path.basename(file)
+                file = os.path.join(base_dir, name)
+                path = os.path.join(img_dir, name)
+                os.rename(file, path)
+
+def open_form_file():
+    origin_dir = os.path.realpath("./Nsmc/src/data")
+    os.startfile(origin_dir)
 
 
 def show_how_to_use():
