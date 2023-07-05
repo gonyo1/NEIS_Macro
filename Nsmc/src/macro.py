@@ -9,7 +9,10 @@ from PyQt5.QtCore import QThread, pyqtSignal
 
 
 def get_file():
-    base_dir = sys._MEIPASS
+    try:
+        base_dir = sys._MEIPASS
+    except AttributeError:
+        base_dir = os.path.abspath(".")
 
     os.makedirs('./Nsmc/src/data', exist_ok=True)
     os.makedirs('./Nsmc/src/img', exist_ok=True)

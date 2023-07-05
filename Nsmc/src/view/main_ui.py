@@ -153,7 +153,7 @@ class Ui_MainApp(object):
         self.Searchbar_layout.addWidget(self.Form_downbar_get)
         self.verticalLayout.addWidget(self.Form_downbar_grid)
         self.Macro = QtWidgets.QWidget(self.centralwidget)
-        self.Macro.setGeometry(QtCore.QRect(40, 270, 424, 481))
+        self.Macro.setGeometry(QtCore.QRect(40, 270, 424, 480))
         self.Macro.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.Macro.setStyleSheet("/*QLabel CSS*/\n"
 "#MacroName {margin-bottom: 15px;}\n"
@@ -464,12 +464,12 @@ class Ui_MainApp(object):
         self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.Tutorial)
-        self.label_3.setGeometry(QtCore.QRect(10, 0, 471, 191))
+        self.label_3.setGeometry(QtCore.QRect(14, 0, 471, 191))
         self.label_3.setStyleSheet("background: rgb(223, 223, 224); border-radius: 20px;")
         self.label_3.setText("")
         self.label_3.setObjectName("label_3")
         self.label = QtWidgets.QLabel(self.Tutorial)
-        self.label.setGeometry(QtCore.QRect(0, 10, 491, 191))
+        self.label.setGeometry(QtCore.QRect(4, 10, 491, 191))
         self.label.setStyleSheet("background: rgb(238, 238, 239); border-radius: 20px;")
         self.label.setText("")
         self.label.setObjectName("label")
@@ -505,11 +505,11 @@ class Ui_MainApp(object):
         self.Tutorial_Push.setMinimumSize(QtCore.QSize(0, 60))
         self.Tutorial_Push.setText("")
         self.Tutorial_Push.setObjectName("Tutorial_Push")
-        self.label_2.raise_()
         self.label_3.raise_()
         self.label.raise_()
         self.FormName_2.raise_()
         self.Tutorial_widget.raise_()
+        self.label_2.raise_()
         self.black = QtWidgets.QWidget(self.centralwidget)
         self.black.setEnabled(False)
         self.black.setGeometry(QtCore.QRect(0, 0, 501, 901))
@@ -579,4 +579,4 @@ class Ui_MainApp(object):
         self.infobox_title.setText(_translate("MainApp", "업로드를 실행할 수 없습니다."))
         self.infobox_confirm.setText(_translate("MainApp", "OK"))
         self.infobox_detail.setText(_translate("MainApp", "나이스가 켜져 있는지 확인해주세요."))
-import main_rc
+import Nsmc.src.view.main_rc

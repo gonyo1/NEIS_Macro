@@ -85,5 +85,6 @@ if __name__ == "__main__":
 pyuic5 ./Nsmc/src/view/main.ui -o ./Nsmc/src/view/main_ui.py
 pyrcc5 ./Nsmc/src/view/main.qrc -o ./Nsmc/src/view/main_rc.py
 pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/view/fox.ico main.py
+pyinstaller -w -F --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/view/fox.ico main.py
 
 """
