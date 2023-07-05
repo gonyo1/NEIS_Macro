@@ -1,6 +1,4 @@
 import os
-import win32com
-from ctypes import windll
 import win32com.client as win32
 import pyperclip
 import pyautogui
@@ -10,6 +8,12 @@ from PyQt5.QtCore import QThread, pyqtSignal
 
 
 def get_form_file():
+    if not os.path.isdir(os.path.realpath("./Nsmc")):
+        os.mkdir(os.path.realpath("./Nsmc"))
+    if not os.path.isdir(os.path.realpath("./Nsmc/src")):
+        os.mkdir(os.path.realpath("./Nsmc/src"))
+    if not os.path.isdir(os.path.realpath("./Nsmc/src/data")):
+        os.mkdir(os.path.realpath("./Nsmc/src/data"))
     path = os.path.realpath("./Nsmc/src/data")
     os.startfile(path)
 
@@ -33,9 +37,21 @@ class MacroThread(QThread):
         self.is_override = 1
         self.speed = 0.1
         self.evaluate_step = 3
+        self.eval_step_list = [1, 2, 3, 4, 5]
         self.selector = 0
 
     def run(self):
+
+        # NEIS SELECTOR
+        pythoncom.CoInitialize()
+        shell = win32.Dispatch('WScript.Shell')
+        shell.AppActivate("4세대 지능형 나이스 시스템")
+
+        # get_data_from_clipboard
+        copy_data = pyperclip.paste()
+        evaluate_list = [str(i) for i in copy_data.splitlines()]
+
+        # Select which course to go
         if self.selector == 0:
             print("Error100:index id does not given")
         elif self.selector == 1:
@@ -47,18 +63,9 @@ class MacroThread(QThread):
         elif self.selector == 3:
             print("Error103:행발:누가기록 업로드를 시작합니다.")
         elif self.selector == 4:
-            print("Error103:교과:영역별 교과평가 업로드를 시작합니다.")
+            print("Success103:교과:영역별 교과평가 업로드를 시작합니다.")
             self.how_many_Tab = 1
-            self.eval_step_list = list(range(self.evaluate_step + 1))
-
-        # NEIS SELECTOR
-        pythoncom.CoInitialize()
-        shell = win32.Dispatch('WScript.Shell')
-        shell.AppActivate("4세대 지능형 나이스 시스템")
-
-        # get_data_from_clipboard
-        copy_data = pyperclip.paste()
-        evaluate_list = [str(i) for i in copy_data.splitlines()]
+            evaluate_list = self.is_grade_Korean(evaluate_list)[:]
 
         # do something by one data
         for i, data in enumerate(evaluate_list):
@@ -97,7 +104,7 @@ class MacroThread(QThread):
             elif self.selector == 4:
                 for grade in range(self.eval_step_list[int(data)]):
                     shell.SendKeys('{DOWN}')
-                    time.sleep(self.speed * 2)
+                    time.sleep(self.speed * 3)
 
                 shell.SendKeys('{TAB}')
                 time.sleep(self.speed)
@@ -106,8 +113,40 @@ class MacroThread(QThread):
 
         self.threadEvent.emit()
 
-class Name:
-            
+    @staticmethod
+    def is_grade_Korean(data: list = None) -> list:
+        grade_data = []
+        grade_dict = {'상': 0,
+                      '중': 1,
+                      '하': 2}
+        if ("최상" in data):
+            for item in data:
+                try:
+                    if item == '최상':
+                        grade_data.append(0)
+                    else:
+                        grade_data.append(grade_dict[item] + 1)
+                except (KeyError, ValueError):
+                    grade_data.append(0)
+
+        elif ("상" in data) or ("중" in data) or ("하" in data):
+            try:
+                for item in data:
+                    grade_data.append(grade_dict[item])
+            except (KeyError, ValueError):
+                grade_data.append(0)
+        else:
+            try:
+                for item in data:
+                    grade_data.append(int(item))
+            except (KeyError, ValueError):
+                grade_data.append(0)
+
+        return grade_data
+
+
+"""
+class remove:       
     def run_gyogwa_step(self, step: int = 3):
         print("교과:영역별 교과평가를 업로드 합니다.")
         evaluate_step = list(range(step + 1))
@@ -233,3 +272,4 @@ class Name:
                 time.sleep(self.speed)
                 shell.SendKeys('{TAB}')
                 time.sleep(self.speed)
+"""
