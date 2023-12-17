@@ -1,11 +1,23 @@
 # pip install pyqt5 pywin32 pyinstaller pyautogui pyperclip tinyaes
 
-import sys
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QApplication
+# python internal packages
+import os, sys
+sys.path.append(os.path.abspath("./venv/Lib/site-packages/PyQt5/Qt5/plugins/platforms"))
+print(sys.path)
+
+# python external packages
+try:
+    from PyQt5.QtGui import QIcon
+    from PyQt5.QtWidgets import QMainWindow, QApplication
+except ImportError:
+    os.system("pip install pyqt5")
+    "pip install pyqt5-tools"
+    from PyQt5.QtGui import QIcon
+    from PyQt5.QtWidgets import QMainWindow, QApplication
+
+# local packages
 from Nsmc.src.view.main_ui import Ui_MainApp as mp
 import Nsmc.src.macro as mc
-import Nsmc.src.view.main_rc
 
 
 class MainWindow(QMainWindow, mp):
@@ -28,8 +40,8 @@ class MainWindow(QMainWindow, mp):
         self.Tutorial_Push.clicked.connect(mc.show_how_to_use)
         self.Macro_push_1.clicked.connect(lambda state, index=1: self.run_upload_thread(index))
         self.Macro_push_2.clicked.connect(lambda state, index=2: self.run_upload_thread(index))
-        self.Macro_push_3.clicked.connect(self.mcr_developing_event)
-        # self.Macro_push_3.clicked.connect(lambda state, index=3: self.run_upload_thread(index))
+        # self.Macro_push_3.clicked.connect(self.mcr_developing_event)
+        self.Macro_push_3.clicked.connect(lambda state, index=3: self.run_upload_thread(index))
         self.Macro_push_4.clicked.connect(lambda state, index=4: self.run_upload_thread(index))
         self.Macro_push_5.clicked.connect(self.mcr_developing_event)
         # self.Macro_push_5.clicked.connect(lambda state, index=5: self.run_upload_thread(index))

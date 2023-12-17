@@ -1,10 +1,30 @@
-import os, glob
+# python internal packages
 import sys
-import win32com.client as win32
-import pyperclip
-import pyautogui
-import pythoncom
 import time
+import os, glob
+
+
+# python external packages
+
+try:
+    import pyperclip
+except ImportError:
+    os.system("pip install pyperclip")
+    import pyperclip
+try:
+    import win32com.client as win32
+    import pythoncom
+except ImportError:
+    os.system("pip install pywin32")
+    import win32com.client as win32
+    import pythoncom
+
+try:
+    import pyautogui
+except ImportError:
+    os.system("pip install pyautogui")
+    import pyautogui
+
 from PyQt5.QtCore import QThread, pyqtSignal
 
 
