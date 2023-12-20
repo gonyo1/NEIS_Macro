@@ -9,19 +9,6 @@ except ImportError:
     import pyperclip
 
 try:
-    import cv2
-except ImportError:
-    os.system("pip install cv2")
-    import cv2
-
-try:
-    import numpy as np
-except ImportError:
-    os.system("pip install numpy")
-    import numpy as np
-    import cv2
-
-try:
     import pyautogui
 except ImportError:
     os.system("pip install pyautogui")
@@ -59,6 +46,11 @@ class KeyEvent:
             self.shell.SendKeys('{DOWN}')
             time.sleep(self.speed * slow)
 
+    def escape(self):
+        # press escape button
+        self.shell.SendKeys('{ESCAPE}')
+        time.sleep(self.speed)
+
     def tab(self, repeat_count: int = 1):
         for count in range(repeat_count):
             # press tab button
@@ -95,26 +87,6 @@ class KeyEvent:
             self.delete()
         else:
             self.end()
-
-    def click_add_button(self):
-        path = os.path.abspath("Nsmc/src/img/asset/add.png")
-        n = np.fromfile(path, np.uint8)
-        img = cv2.imdecode(n, cv2.IMREAD_COLOR)
-        add_button = pyautogui.locateOnScreen(img)
-
-        time.sleep(self.speed * 3)
-        pyautogui.click(add_button)
-        time.sleep(self.speed * 3)
-
-    def click_save_button(self):
-        path = os.path.abspath("Nsmc/src/img/asset/save.png")
-        n = np.fromfile(path, np.uint8)
-        img = cv2.imdecode(n, cv2.IMREAD_COLOR)
-        add_button = pyautogui.locateOnScreen(img)
-
-        time.sleep(self.speed * 3)
-        pyautogui.click(add_button)
-        time.sleep(self.speed * 3)
 
     def sleep_seconds(self, second=1):
         time.sleep(self.speed * 10 * second)

@@ -4,6 +4,7 @@ import os
 
 # local packages
 from Nsmc.src.scripts import macro as mc
+from Nsmc.src.scripts.upload.upload_macro import KeyEvent
 from Nsmc.src.view.main_ui import Ui_MainApp as mp
 from Nsmc.src.scripts.common import open_xlsx_file as xlsx
 
@@ -23,7 +24,6 @@ class NEISMacro(QMainWindow, mp):
         super(NEISMacro, self).__init__(parent)
         self.setupUi(self)
         self.mcr_object = mc.MacroThread(self)
-
         # Initialize Setup
         self.init_setup()
 

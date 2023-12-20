@@ -59,7 +59,6 @@ class MacroThread(QThread):
         # NEIS SELECTOR
         pythoncom.CoInitialize()
         shell = win32.Dispatch('WScript.Shell')
-        shell.AppActivate("4세대 지능형 나이스 시스템")
 
         # MACRO CLASS CALL
         self.key_event = KeyEvent(shell)
@@ -74,6 +73,7 @@ class MacroThread(QThread):
         # UPLOAD ONE BY ONE
         for index, data in enumerate(data_list):
             # PRESS AS NEED AS INITALIZE
+            shell.AppActivate("4세대 지능형 나이스 시스템")
             self.key_event.tab(repeat_count=self.init_tab_count)
 
             # DO TASKS BY SELECTOR NUMBER
@@ -88,18 +88,25 @@ class MacroThread(QThread):
 
             elif self.selector == 3:
                 while True:
+                    # Web name check
                     self.key_event.press_copy()
                     name = pyperclip.paste()
                     name = str(name.split("\t")[1]).split("\n")[0].replace("\r", '')
+
+                    # data name check
                     check_name = str(data[1].split(" ")[-1].strip())
-                    print(name, check_name)
+                    print("web nams is ", name, "data name is", check_name)
 
                     if name == check_name:
+                        self.key_event.tab(repeat_count=12)
+                        self.key_event.press_copy()
+                        line = str(pyperclip.paste())
+                        registered_count = int(line.split("\t")[1])
+
                         print("lets upload")
-                        self.key_event.click_add_button()
-                        self.key_event.sleep_seconds(2)
+                        self.key_event.tab(repeat_count=6)
+                        self.key_event.space()
                         self.key_event.tab(repeat_count=1)
-                        self.key_event.sleep_seconds(2)
 
                         # DATE COPY
                         self.key_event.copy(data[0])
@@ -109,12 +116,13 @@ class MacroThread(QThread):
                         # SCRIPT COPY
                         self.key_event.copy(data[3])
                         self.key_event.paste()
+                        self.key_event.escape()
 
                         # SAVE CLICK
-                        self.key_event.click_save_button()
-                        self.key_event.sleep_seconds(2)
+                        self.key_event.tab(repeat_count=4)
                         self.key_event.space()
-                        self.key_event.sleep_seconds(2)
+                        self.key_event.sleep_seconds(1)
+
 
                         break
                     else:
