@@ -1,0 +1,8 @@
+{
+    "web_title": "4세대 지능형 나이스 시스템",
+    "how_many_Tab": 0,
+    "override_mode": "on",
+    "speed": 0.1,
+    "evaluate_step": 3,
+    "eval_step_list": [1, 2, 3, 4, 5]
+}

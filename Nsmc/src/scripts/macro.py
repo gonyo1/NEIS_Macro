@@ -4,13 +4,14 @@ import time
 import os, glob
 
 
-# python external packages
 
+# python external packages
 try:
     import pyperclip
 except ImportError:
     os.system("pip install pyperclip")
     import pyperclip
+
 try:
     import win32com.client as win32
     import pythoncom
@@ -20,53 +21,25 @@ except ImportError:
     import pythoncom
 
 try:
-    import pyautogui
+    import tinyaes
 except ImportError:
-    os.system("pip install pyautogui")
-    import pyautogui
+    os.system("pip install tinyaes")
+    import tinyaes
 
+
+
+# Import PyQt5
 from PyQt5.QtCore import QThread, pyqtSignal
 
 
-def get_file():
-    try:
-        base_dir = sys._MEIPASS
-    except AttributeError:
-        base_dir = os.path.abspath(".")
-
-    os.makedirs('./Nsmc/src/data', exist_ok=True)
-    os.makedirs('./Nsmc/src/img', exist_ok=True)
-
-    data_dir = os.path.realpath("./Nsmc/src/data")
-    img_dir = os.path.realpath("./Nsmc/src/img")
-
-    if not os.path.isfile("./Nsmc/src/data/특기사항.xlsx"):
-        for file in os.listdir(base_dir):
-            if file.endswith(".xlsx"):
-                name = os.path.basename(file)
-                file = os.path.join(base_dir, name)
-                path = os.path.join(data_dir, name)
-                os.rename(file, path)
-
-            if file.endswith(".png"):
-                name = os.path.basename(file)
-                file = os.path.join(base_dir, name)
-                path = os.path.join(img_dir, name)
-                os.rename(file, path)
-
-
-def open_form_file():
-    origin_dir = os.path.realpath("./Nsmc/src/data")
-    os.startfile(origin_dir)
-
-
-def show_how_to_use():
-    path = os.path.realpath("./Nsmc/src/img/howtocopy.png")
-    os.startfile(path)
+# Import Local Files
+from Nsmc.src.scripts.upload.upload_macro import KeyEvent
+from Nsmc.src.scripts.upload.translate_data import set_copied_data_to_list
 
 
 class MacroThread(QThread):
     threadEvent = pyqtSignal()
+    uploader = None
 
     def __init__(self, parent=None):
         super().__init__()
@@ -75,116 +48,101 @@ class MacroThread(QThread):
         self.copy_entire_data_from_xlsx = []
         self.copy_data_one_student = ''
         self.web_title = "4세대 지능형 나이스 시스템"
-        self.how_many_Tab = 0
-        self.is_override = 1
+        self.init_tab_count = 0
+        self.is_override = "ON"
         self.speed = 0.1
         self.evaluate_step = 3
         self.eval_step_list = [1, 2, 3, 4, 5]
         self.selector = 0
 
     def run(self):
-
         # NEIS SELECTOR
         pythoncom.CoInitialize()
         shell = win32.Dispatch('WScript.Shell')
         shell.AppActivate("4세대 지능형 나이스 시스템")
 
-        # get_data_from_clipboard
-        copy_data = pyperclip.paste()
-        evaluate_list = [str(i) for i in copy_data.splitlines()]
+        # MACRO CLASS CALL
+        self.key_event = KeyEvent(shell)
 
-        # Select which course to go
-        if self.selector == 0:
-            print("Error100:index id does not given")
-        elif self.selector == 1:
-            print("Success101:행발:종합의견 업로드를 시작합니다.")
-            self.how_many_Tab = 1
-        elif self.selector == 2:
-            print("Success102:교과:학기말종합의견 업로드를 시작합니다.")
-            self.how_many_Tab = 2
-        elif self.selector == 3:
-            print("Error103:행발:누가기록 업로드를 시작합니다.")
-        elif self.selector == 4:
-            print("Success103:교과:영역별 교과평가 업로드를 시작합니다.")
-            self.how_many_Tab = 1
-            evaluate_list = self.is_grade_Korean(evaluate_list)[:]
+        # GET DATA FROM CLIPBOARD
+        data = pyperclip.paste()
+        data_list = set_copied_data_to_list(self.selector, data)
 
-        # do something by one data
-        for i, data in enumerate(evaluate_list):
-            for tab in range(self.how_many_Tab):
-                shell.SendKeys('{TAB}')
-                time.sleep(self.speed)
+        # SET INIT TAB COUNT
+        self.init_tab_count = self.set_init_tab_count(self.selector)
 
+        # UPLOAD ONE BY ONE
+        for index, data in enumerate(data_list):
+            # PRESS AS NEED AS INITALIZE
+            self.key_event.tab(repeat_count=self.init_tab_count)
+
+            # DO TASKS BY SELECTOR NUMBER
             if (self.selector == 1) or (self.selector == 2):
-                # do override or addride
-                if self.is_override == 1:
-                    # 덮어쓰기
-                    pyautogui.keyDown('ctrl')
-                    pyautogui.press('a')
-                    pyautogui.keyUp('ctrl')
-                    pyautogui.press('del')
-                else:
-                    # 이어쓰기
-                    pyautogui.press('end')
-                    pyautogui.press('space')
-                time.sleep(self.speed)
+                # SET WRITING TYPE
+                self.key_event.writing_type(mode=self.is_override)
 
-                # copy
-                data = data.strip()
-                pyperclip.copy(data)
-                time.sleep(self.speed)
+                # DO TASKS
+                self.key_event.copy(data=data)
+                self.key_event.paste()
+                self.key_event.move_to_next_row()
 
-                # paste
-                pyautogui.keyDown('ctrl')
-                pyautogui.press('v')
-                pyautogui.keyUp('ctrl')
-                time.sleep(self.speed)
+            elif self.selector == 3:
+                while True:
+                    self.key_event.press_copy()
+                    name = pyperclip.paste()
+                    name = str(name.split("\t")[1]).split("\n")[0].replace("\r", '')
+                    check_name = str(data[1].split(" ")[-1].strip())
+                    print(name, check_name)
 
-                # move to next row
-                shell.SendKeys('{TAB}')
-                time.sleep(self.speed)
+                    if name == check_name:
+                        print("lets upload")
+                        self.key_event.click_add_button()
+                        self.key_event.sleep_seconds(2)
+                        self.key_event.tab(repeat_count=1)
+                        self.key_event.sleep_seconds(2)
+
+                        # DATE COPY
+                        self.key_event.copy(data[0])
+                        self.key_event.paste()
+                        self.key_event.tab(repeat_count=2)
+
+                        # SCRIPT COPY
+                        self.key_event.copy(data[3])
+                        self.key_event.paste()
+
+                        # SAVE CLICK
+                        self.key_event.click_save_button()
+                        self.key_event.sleep_seconds(2)
+                        self.key_event.space()
+                        self.key_event.sleep_seconds(2)
+
+                        break
+                    else:
+                        self.key_event.down(slow=2)
+
             elif self.selector == 4:
-                for grade in range(self.eval_step_list[int(data)]):
-                    shell.SendKeys('{DOWN}')
-                    time.sleep(self.speed * 3)
-
-                shell.SendKeys('{TAB}')
-                time.sleep(self.speed)
-                shell.SendKeys('{TAB}')
-                time.sleep(self.speed)
+                self.key_event.down(repeat_count=int(data + 1), slow=3)
+                self.key_event.tab(repeat_count=2)
 
         self.threadEvent.emit()
 
     @staticmethod
-    def is_grade_Korean(data: list = None) -> list:
-        grade_data = []
-        grade_dict = {'상': 0,
-                      '중': 1,
-                      '하': 2}
-        if ("최상" in data):
-            for item in data:
-                try:
-                    if item == '최상':
-                        grade_data.append(0)
-                    else:
-                        grade_data.append(grade_dict[item] + 1)
-                except (KeyError, ValueError):
-                    grade_data.append(0)
+    def set_init_tab_count(selector):
+        if selector == 1:
+            print("Success101:행발:종합의견 업로드를 시작합니다.")
+            return 2
 
-        elif ("상" in data) or ("중" in data) or ("하" in data):
-            try:
-                for item in data:
-                    grade_data.append(grade_dict[item])
-            except (KeyError, ValueError):
-                grade_data.append(0)
-        else:
-            try:
-                for item in data:
-                    grade_data.append(int(item))
-            except (KeyError, ValueError):
-                grade_data.append(0)
+        elif selector == 2:
+            print("Success102:교과:학기말종합의견 업로드를 시작합니다.")
+            return 2
 
-        return grade_data
+        elif selector == 3:
+            print("Error103:행발:누가기록 업로드를 시작합니다.")
+            return 0
+
+        elif selector == 4:
+            print("Success103:교과:영역별 교과평가 업로드를 시작합니다.")
+            return 1
 
 
 """
@@ -197,7 +155,7 @@ class remove:
         self.copy_entire_data_from_xlsx = self.get_data_from_clipboard()
         
         for i, data in enumerate(self.copy_entire_data_from_xlsx):
-            self.send_tabs(how_many_Tab=1)
+            self.send_tabs(set_init_tab_count=1)
 
             for j in range(evaluate_step[data]):
                 self.shell.SendKeys('{DOWN}')
@@ -206,7 +164,7 @@ class remove:
             if i == len(self.copy_entire_data_from_xlsx) - 1:
                 break
             else:
-                self.send_tabs(how_many_Tab=3)
+                self.send_tabs(set_init_tab_count=3)
             
 # -----------------------------------------------------------------------------
         # 행발:종합의견 업로드
