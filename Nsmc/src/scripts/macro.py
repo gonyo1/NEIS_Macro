@@ -13,6 +13,13 @@ except ImportError:
     import pyperclip
 
 try:
+    import tinyaes
+except ImportError:
+    os.system("pip install tinyaes")
+    import tinyaes
+
+
+try:
     import win32com.client as win32
     import pythoncom
 except ImportError:

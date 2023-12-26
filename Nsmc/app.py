@@ -46,21 +46,32 @@ class NEISMacro(QMainWindow, mp):
             self.infobox_title.setStyleSheet("color: rgb(52, 120, 245)")
             self.infobox_detail.setText("7월 중에는 업데이트하여 재배포 예정")
 
+        def mcr_developing_event():
+            self.init_alter_setup("ON")
+            self.infobox_title.setText("업로드가 완료되었습니다.")
+            self.infobox_title.setStyleSheet("color: rgb(52, 120, 245)")
+            self.infobox_detail.setText("OK 버튼을 눌러 종료하시면 됩니다.")
+
+
         # Upload Thread Part -------------------------------------------
         def run_upload_thread(index: int = 0):
-            self.init_alter_setup("ON")
-            self.mcr_object.selector = index
-            self.mcr_object.start()
-
             self.infobox_title.setText("데이터를 나이스로 업로드 중입니다.")
             self.infobox_title.setStyleSheet("color: rgb(52, 120, 245)")
             self.infobox_detail.setText("업로드 중에 조작은 오류를 발생시킬 수 있습니다.")
+
+            self.init_alter_setup("ON")
+            self.mcr_object.selector = index
+            self.mcr_object.start()
 
         # Get xlsx file Slot
         self.Form_downbar_get.clicked.connect(lambda: xlsx.open_xlsx_file())
 
         # Tutorial Slot
         self.Tutorial_Push.clicked.connect(lambda: self.open_tutorial_page())
+
+        # Macro Clicked Slot
+        self.mcr_object.threadEvent.connect(lambda: mcr_developing_event())  # When Macro Started
+        self.infobox_confirm.clicked.connect(mcr_end_event)  # Macro [OK] Button clicked
 
         # Macro Slots
         self.Macro_push_1.clicked.connect(lambda state, index=1: run_upload_thread(index))
@@ -69,10 +80,6 @@ class NEISMacro(QMainWindow, mp):
         self.Macro_push_4.clicked.connect(lambda state, index=4: run_upload_thread(index))
         self.Macro_push_5.clicked.connect(mcr_developing_event)
         # self.Macro_push_5.clicked.connect(lambda state, index=5: self.run_upload_thread(index))
-
-        # Macro Clicked Slot
-        self.mcr_object.threadEvent.connect(lambda: mcr_developing_event())  # When Macro Started
-        self.infobox_confirm.clicked.connect(mcr_end_event)  # Macro [OK] Button clicked
 
     def init_alter_setup(self, status: str = "OFF"):
         if status == "OFF":
