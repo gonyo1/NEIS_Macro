@@ -34,208 +34,6 @@
 QLabel {background: transparent; font: 20px &quot;나눔스퀘어 ExtraBold&quot;; color: black;}
 #Body_Search {display:none;}</string>
    </property>
-   <widget class="QWidget" name="Topbar" native="true">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>27</y>
-      <width>421</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">/*QLabel CSS*/
-.QLabel#Topbar_watch {background: transparent; font: 18px &quot;나눔스퀘어 Bold&quot;; color: white;}
-
-/*QPushButton CSS*/
-.QPushButton {border: 0px solid;border-radius:7px;width:14px;height:14px;}
-.QPushButton {margin-right: 10px;}
-.QPushButton#Topbar_close {background:  rgba(255, 96, 92, 255);}
-.QPushButton#Topbar_close:hover {background: rgba(255, 96, 92, 200);}
-.QPushButton#Topbar_minimize {background:  rgba(255, 189, 68, 255);}
-.QPushButton#Topbar_minimize:hover {background: rgba(255, 189, 68, 200);}
-
-/**/
-#Topbar_island {background: transparent}
-#Topbar {border-radius:40px; background: #010101; padding: 10px;}</string>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <property name="leftMargin">
-      <number>20</number>
-     </property>
-     <property name="topMargin">
-      <number>0</number>
-     </property>
-     <property name="rightMargin">
-      <number>10</number>
-     </property>
-     <property name="bottomMargin">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QWidget" name="Topbar_statusbar" native="true">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <layout class="QHBoxLayout" name="Topbar_statusbar_layout">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="Topbar_watch">
-       <property name="minimumSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="main.qrc">:/img/fox.svg</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="Topbar_spacer_1">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QWidget" name="Topbar_island" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>280</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>280</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <widget class="QLabel" name="Topbar_island_title">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>16</y>
-          <width>261</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">.QLabel {font: 22px &quot;나눔스퀘어 ExtraBold&quot;; color: white;}
-</string>
-        </property>
-        <property name="text">
-         <string>Gonyo Apps</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="indent">
-         <number>-1</number>
-        </property>
-       </widget>
-       <widget class="QLabel" name="Topbar_island_subtitle">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>40</y>
-          <width>261</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
-        </property>
-        <property name="text">
-         <string>4세대 나이스 대응:자동 업로더</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="indent">
-         <number>-1</number>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item>
-      <spacer name="Topbar_spacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="Topbar_minimize">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="Topbar_close">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="Form_downbar" native="true">
     <property name="enabled">
      <bool>true</bool>
@@ -243,7 +41,7 @@ QLabel {background: transparent; font: 20px &quot;나눔스퀘어 ExtraBold&quot
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>130</y>
+      <y>20</y>
       <width>421</width>
       <height>120</height>
      </rect>
@@ -379,7 +177,7 @@ background: #f7f7f7;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="main.qrc">:/img/Microsoft_Excel-Logo.wine.svg</pixmap>
+            <pixmap resource="../assets/main.qrc">:/img/Microsoft_Excel-Logo.wine.svg</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -419,9 +217,9 @@ background: #f7f7f7;</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>270</y>
+      <y>170</y>
       <width>424</width>
-      <height>480</height>
+      <height>571</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -440,7 +238,7 @@ background: #f7f7f7;</string>
 
 /*QPushButton CSS*/
 #Macrobar_grid .QWidget .QPushButton {background: transparent;}
-#Macro {background: white; border-radius: 20px}
+#Macro {background: white;}
 
 .QScrollArea .QScrollBar:vertical {
 border: 0px solid #c3c3c3;
@@ -490,7 +288,7 @@ subcontrol-origin: margin;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">margin: 10px 0px;</string>
        </property>
        <property name="text">
         <string>손쉬운 업로드 갤러리</string>
@@ -517,13 +315,13 @@ subcontrol-origin: margin;
           <x>0</x>
           <y>0</y>
           <width>420</width>
-          <height>470</height>
+          <height>630</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true"/>
         </property>
-        <layout class="QGridLayout" name="gridLayout_5">
+        <layout class="QGridLayout" name="gridLayout_5" rowstretch="0,0,0,0,0">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -539,6 +337,367 @@ subcontrol-origin: margin;
          <property name="spacing">
           <number>10</number>
          </property>
+         <item row="2" column="1">
+          <widget class="QWidget" name="Macro_items_6" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#Macrobar_grid .QWidget {background: rgba(105, 162, 75, 255);}
+#Macrobar_grid .QWidget:hover {background:  rgba(105, 162, 75, 200)}</string>
+           </property>
+           <widget class="QPushButton" name="Macro_push_6">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>150</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_labels_6">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>85</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>창체: 누가기록</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_describes_6">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>110</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
+            </property>
+            <property name="text">
+             <string>자동봉직 특기사항</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_icon_6">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>12</y>
+              <width>37</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/gamepad-modern.svg);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <zorder>Macro_labels_6</zorder>
+           <zorder>Macro_describes_6</zorder>
+           <zorder>Macro_icon_6</zorder>
+           <zorder>Macro_push_6</zorder>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QWidget" name="Macro_items_3" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#Macrobar_grid .QWidget {background: rgba(230, 111, 85, 255);}
+#Macrobar_grid .QWidget:hover {background:  rgba(230, 111, 85, 200)}</string>
+           </property>
+           <widget class="QPushButton" name="Macro_push_3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>150</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">#Macrobar_grid .QWidget {background: rgba(230, 111, 85, 255);}
+#Macrobar_grid .QWidget:hover {background:  rgba(230, 111, 85, 200)}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_labels_3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>85</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>행발:누가기록</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_describes_3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>110</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
+            </property>
+            <property name="text">
+             <string>학생의 행동특성 누가기록</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_icon_3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>12</y>
+              <width>28</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/user-solid.svg);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <zorder>Macro_labels_3</zorder>
+           <zorder>Macro_describes_3</zorder>
+           <zorder>Macro_icon_3</zorder>
+           <zorder>Macro_push_3</zorder>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QWidget" name="Macro_items_4" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#Macrobar_grid .QWidget {background: rgba(188, 118, 190, 255);}
+#Macrobar_grid .QWidget:hover {background:  rgba(188, 118, 190, 200)}</string>
+           </property>
+           <widget class="QPushButton" name="Macro_push_4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>150</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_labels_4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>85</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>교과:성취기준별 평가</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_describes_4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>110</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
+            </property>
+            <property name="text">
+             <string>교과별 상중하 입력</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_icon_4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>12</y>
+              <width>28</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/book-solid.svg);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <zorder>Macro_labels_4</zorder>
+           <zorder>Macro_describes_4</zorder>
+           <zorder>Macro_icon_4</zorder>
+           <zorder>Macro_push_4</zorder>
+          </widget>
+         </item>
          <item row="0" column="1">
           <widget class="QWidget" name="Macro_items_2" native="true">
            <property name="minimumSize">
@@ -775,243 +934,6 @@ subcontrol-origin: margin;
            <zorder>Macro_push_1</zorder>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QWidget" name="Macro_items_3" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>150</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>200</width>
-             <height>150</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#Macrobar_grid .QWidget {background: rgba(230, 111, 85, 255);}
-#Macrobar_grid .QWidget:hover {background:  rgba(230, 111, 85, 200)}</string>
-           </property>
-           <widget class="QPushButton" name="Macro_push_3">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>200</width>
-              <height>150</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>150</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>150</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">#Macrobar_grid .QWidget {background: rgba(230, 111, 85, 255);}
-#Macrobar_grid .QWidget:hover {background:  rgba(230, 111, 85, 200)}</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="Macro_labels_3">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>85</y>
-              <width>181</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>행발:누가기록</string>
-            </property>
-            <property name="indent">
-             <number>-1</number>
-            </property>
-           </widget>
-           <widget class="QLabel" name="Macro_describes_3">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>110</y>
-              <width>181</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
-            </property>
-            <property name="text">
-             <string>학생의 행동특성 누가기록</string>
-            </property>
-            <property name="indent">
-             <number>-1</number>
-            </property>
-           </widget>
-           <widget class="QLabel" name="Macro_icon_3">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>12</x>
-              <y>12</y>
-              <width>28</width>
-              <height>30</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/img/user-solid.svg);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-            <property name="indent">
-             <number>-1</number>
-            </property>
-           </widget>
-           <zorder>Macro_labels_3</zorder>
-           <zorder>Macro_describes_3</zorder>
-           <zorder>Macro_icon_3</zorder>
-           <zorder>Macro_push_3</zorder>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QWidget" name="Macro_items_4" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>150</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>200</width>
-             <height>150</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#Macrobar_grid .QWidget {background: rgba(188, 118, 190, 255);}
-#Macrobar_grid .QWidget:hover {background:  rgba(188, 118, 190, 200)}</string>
-           </property>
-           <widget class="QPushButton" name="Macro_push_4">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>200</width>
-              <height>150</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>150</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>150</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="Macro_labels_4">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>85</y>
-              <width>181</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>교과:영역별 교과평가</string>
-            </property>
-            <property name="indent">
-             <number>-1</number>
-            </property>
-           </widget>
-           <widget class="QLabel" name="Macro_describes_4">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>110</y>
-              <width>181</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
-            </property>
-            <property name="text">
-             <string>교과별 상중하 입력</string>
-            </property>
-            <property name="indent">
-             <number>-1</number>
-            </property>
-           </widget>
-           <widget class="QLabel" name="Macro_icon_4">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>12</x>
-              <y>12</y>
-              <width>28</width>
-              <height>30</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/img/book-solid.svg);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-            <property name="indent">
-             <number>-1</number>
-            </property>
-           </widget>
-           <zorder>Macro_labels_4</zorder>
-           <zorder>Macro_describes_4</zorder>
-           <zorder>Macro_icon_4</zorder>
-           <zorder>Macro_push_4</zorder>
-          </widget>
-         </item>
          <item row="2" column="0">
           <widget class="QWidget" name="Macro_items_5" native="true">
            <property name="minimumSize">
@@ -1035,19 +957,19 @@ subcontrol-origin: margin;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>190</width>
+              <width>200</width>
               <height>150</height>
              </rect>
             </property>
             <property name="minimumSize">
              <size>
-              <width>190</width>
+              <width>200</width>
               <height>150</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>190</width>
+              <width>200</width>
               <height>150</height>
              </size>
             </property>
@@ -1130,8 +1052,8 @@ subcontrol-origin: margin;
            <zorder>Macro_push_5</zorder>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="QWidget" name="Macro_items_6" native="true">
+         <item row="3" column="0">
+          <widget class="QWidget" name="Macro_items_7" native="true">
            <property name="enabled">
             <bool>false</bool>
            </property>
@@ -1151,7 +1073,7 @@ subcontrol-origin: margin;
             <string notr="true">#Macrobar_grid .QWidget {background: rgba(120, 120, 120, 255);}
 #Macrobar_grid .QWidget:hover {background:  rgba(120, 120, 120, 200)}</string>
            </property>
-           <widget class="QPushButton" name="Macro_push_6">
+           <widget class="QPushButton" name="Macro_push_7">
             <property name="geometry">
              <rect>
               <x>0</x>
@@ -1179,7 +1101,7 @@ subcontrol-origin: margin;
              <string/>
             </property>
            </widget>
-           <widget class="QLabel" name="Macro_labels_6">
+           <widget class="QLabel" name="Macro_labels_7">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -1198,7 +1120,7 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
-           <widget class="QLabel" name="Macro_describes_6">
+           <widget class="QLabel" name="Macro_describes_7">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -1220,7 +1142,7 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
-           <widget class="QLabel" name="Macro_icon_6">
+           <widget class="QLabel" name="Macro_icon_7">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -1245,10 +1167,123 @@ subcontrol-origin: margin;
              <number>-1</number>
             </property>
            </widget>
-           <zorder>Macro_labels_6</zorder>
-           <zorder>Macro_describes_6</zorder>
-           <zorder>Macro_icon_6</zorder>
-           <zorder>Macro_push_6</zorder>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QWidget" name="Macro_items_8" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#Macrobar_grid .QWidget {background: rgba(120, 120, 120, 255);}
+#Macrobar_grid .QWidget:hover {background:  rgba(120, 120, 120, 200)}</string>
+           </property>
+           <widget class="QPushButton" name="Macro_push_8">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>190</width>
+              <height>150</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>190</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>190</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_labels_8">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>85</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>개발 요청</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_describes_8">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>110</y>
+              <width>181</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
+            </property>
+            <property name="text">
+             <string>필요한 업로드 요청해주세요</string>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="Macro_icon_8">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>12</y>
+              <width>27</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/python.svg);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="indent">
+             <number>-1</number>
+            </property>
+           </widget>
           </widget>
          </item>
         </layout>
@@ -1579,12 +1614,12 @@ subcontrol-origin: margin;
    </widget>
    <zorder>black</zorder>
    <zorder>Form_downbar</zorder>
-   <zorder>Topbar</zorder>
    <zorder>Macro</zorder>
    <zorder>Tutorial</zorder>
   </widget>
  </widget>
  <resources>
+  <include location="../assets/main.qrc"/>
   <include location="main.qrc"/>
  </resources>
  <connections/>

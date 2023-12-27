@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3caa923-c79b-4d28-b6a0-f67f0a271505" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Nsmc/src/scripts/common/convert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/NEIS_Macro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NEIS_Macro.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nsmc/src/scripts/macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nsmc/src/scripts/macro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nsmc/src/scripts/upload/upload_macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nsmc/src/scripts/upload/upload_macro.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,16 +176,5 @@
       <updated>1688486646914</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Nsmc/src/scripts/macro.py</url>
-          <line>43</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

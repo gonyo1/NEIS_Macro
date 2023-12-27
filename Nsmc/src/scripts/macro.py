@@ -13,26 +13,12 @@ except ImportError:
     import pyperclip
 
 try:
-    import tinyaes
-except ImportError:
-    os.system("pip install tinyaes")
-    import tinyaes
-
-
-try:
     import win32com.client as win32
     import pythoncom
 except ImportError:
     os.system("pip install pywin32")
     import win32com.client as win32
     import pythoncom
-
-try:
-    import tinyaes
-except ImportError:
-    os.system("pip install tinyaes")
-    import tinyaes
-
 
 
 # Import PyQt5
@@ -61,6 +47,7 @@ class MacroThread(QThread):
         self.evaluate_step = 3
         self.eval_step_list = [1, 2, 3, 4, 5]
         self.selector = 0
+        self._check_name = None
 
     def run(self):
         # NEIS SELECTOR
@@ -73,6 +60,7 @@ class MacroThread(QThread):
         # GET DATA FROM CLIPBOARD
         data = pyperclip.paste()
         data_list = set_copied_data_to_list(self.selector, data)
+        print(data_list)
 
         # SET INIT TAB COUNT
         self.init_tab_count = self.set_init_tab_count(self.selector)
@@ -94,6 +82,7 @@ class MacroThread(QThread):
                 self.key_event.move_to_next_row()
 
             elif self.selector == 3:
+
                 while True:
                     # Web name check
                     self.key_event.press_copy()
@@ -105,12 +94,12 @@ class MacroThread(QThread):
                     print("web nams is ", name, "data name is", check_name)
 
                     if name == check_name:
-                        self.key_event.tab(repeat_count=12)
-                        self.key_event.press_copy()
-                        line = str(pyperclip.paste())
-                        registered_count = int(line.split("\t")[1])
+                        if self._check_name == check_name:
+                            print("go further")
+                            self.key_event.tab(repeat_count=1)
 
-                        print("lets upload")
+                        print("누가기록 업로드를 시작합니다.")
+                        # [행추가] 클릭하기
                         self.key_event.tab(repeat_count=6)
                         self.key_event.space()
                         self.key_event.tab(repeat_count=1)
@@ -123,14 +112,31 @@ class MacroThread(QThread):
                         # SCRIPT COPY
                         self.key_event.copy(data[3])
                         self.key_event.paste()
-                        self.key_event.escape()
+
+                        # CHECK IF REGISTERED ALREADY
+                        self.key_event.shift_tab(repeat_count=7, slow=3)
+                        self.key_event.press_copy()
+                        line = str(pyperclip.paste())
+
+                        try:
+                            how_many = int(line.split("\t")[1])
+                        except Exception as e:
+                            print(e)
+                            self.key_event.tab(repeat_count=5)
+                            how_many = 1
+
+                        # GO TO SAVE BUTTON
+                        for i in range(how_many):
+                            self.key_event.shift_tab(repeat_count=4, slow=3)
 
                         # SAVE CLICK
-                        self.key_event.tab(repeat_count=4)
                         self.key_event.space()
-                        self.key_event.sleep_seconds(1)
+                        self.key_event.sleep_seconds(0.5)
+                        self.key_event.space()
+                        self.key_event.sleep_seconds(0.5)
+                        self.key_event.shift_tab(repeat_count=7, slow=3)
 
-
+                        self._check_name = check_name[:]
                         break
                     else:
                         self.key_event.down(slow=2)
@@ -139,13 +145,18 @@ class MacroThread(QThread):
                 self.key_event.down(repeat_count=int(data + 1), slow=3)
                 self.key_event.tab(repeat_count=2)
 
+            elif self.selector == 5:
+                self.key_event.copy(data=data)
+                self.key_event.paste()
+                self.key_event.move_to_next_row()
+
         self.threadEvent.emit()
 
     @staticmethod
     def set_init_tab_count(selector):
         if selector == 1:
             print("Success101:행발:종합의견 업로드를 시작합니다.")
-            return 2
+            return 1
 
         elif selector == 2:
             print("Success102:교과:학기말종합의견 업로드를 시작합니다.")
@@ -156,7 +167,11 @@ class MacroThread(QThread):
             return 0
 
         elif selector == 4:
-            print("Success103:교과:영역별 교과평가 업로드를 시작합니다.")
+            print("Success104:교과:영역별 교과평가 업로드를 시작합니다.")
+            return 1
+
+        elif selector == 5:
+            print("Success105:창체:학생부자료기록 업로드를 시작합니다.")
             return 1
 
 

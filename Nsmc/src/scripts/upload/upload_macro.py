@@ -42,7 +42,7 @@ class KeyEvent:
 
     def down(self, repeat_count: int = 1, slow: int = 1):
         for count in range(repeat_count):
-            # press tab button
+            # press down button
             self.shell.SendKeys('{DOWN}')
             time.sleep(self.speed * slow)
 
@@ -51,11 +51,17 @@ class KeyEvent:
         self.shell.SendKeys('{ESCAPE}')
         time.sleep(self.speed)
 
-    def tab(self, repeat_count: int = 1):
+    def tab(self, repeat_count: int = 1, slow: int = 1):
         for count in range(repeat_count):
             # press tab button
             self.shell.SendKeys('{TAB}')
-            time.sleep(self.speed)
+            time.sleep(self.speed * slow)
+
+    def shift_tab(self, repeat_count: int = 1, slow: int = 1):
+        for count in range(repeat_count):
+            # press tab button
+            self.shell.SendKeys('+{TAB}')
+            time.sleep(self.speed * slow)
 
     def select_all(self):
         pyautogui.keyDown('ctrl')

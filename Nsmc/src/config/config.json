@@ -1,8 +1,23 @@
 {
-    "web_title": "4세대 지능형 나이스 시스템",
-    "how_many_Tab": 0,
-    "override_mode": "on",
-    "speed": 0.1,
-    "evaluate_step": 3,
-    "eval_step_list": [1, 2, 3, 4, 5]
+    "AppName": "NEIS Macro",
+    "Version": "2.0",
+    "Contributors": [
+        "Kim. TaeHa"
+    ],
+    "FontFamily": [
+        "Pretendard",
+        "FontAwesome"
+    ],
+    "AppOptions": {
+        "web_title": "4세대 지능형 나이스 시스템",
+        "how_many_Tab": 0,
+        "override_mode": "on",
+        "speed": 0.1,
+        "evaluate_step": 3,
+        "eval_step_list": [1, 2, 3, 4, 5]
+    },
+    "Developer": {
+        "Mode": "True",
+        "UI_Designer": "남산"
+    }
 }

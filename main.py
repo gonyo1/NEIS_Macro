@@ -17,6 +17,12 @@ except ImportError:
 # local packages
 from Nsmc.src.scripts.common import get_file
 from Nsmc.app import NEISMacro
+from Nsmc.src.scripts.common import get_json
+from Nsmc.src.scripts.common import convert
+
+
+# Set Initial configuration
+config = get_json.load_json_file("config.json")
 
 
 def my_exception_hook(exctype, value, traceback):
@@ -26,6 +32,9 @@ def my_exception_hook(exctype, value, traceback):
 
 
 if __name__ == "__main__":
+    # Convert .ui/.qrc files to .py files
+    convert.convert_pyqt_files(config)
+
     get_file.create_files()
 
     # Application 구성하기
@@ -50,8 +59,8 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
 
 """
-pyuic5 ./Nsmc/src/view/main.ui -o ./Nsmc/src/view/main_ui.py
-pyrcc5 ./Nsmc/src/view/main.qrc -o ./Nsmc/src/view/main_rc.py
-pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/view/fox.ico main.py
-pyinstaller -w -F --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/view/fox.ico main.py
+pyuic5 ./Nsmc/src/views/main.ui -o ./Nsmc/src/views/main_ui.py
+pyrcc5 ./Nsmc/src/views/main.qrc -o ./Nsmc/src/views/main_rc.py
+pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/views/fox.ico main.py
+pyinstaller -w -F --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/views/fox.ico main.py
 """

@@ -4,8 +4,7 @@ import os
 
 # local packages
 from Nsmc.src.scripts import macro as mc
-from Nsmc.src.scripts.upload.upload_macro import KeyEvent
-from Nsmc.src.view.main_ui import Ui_MainApp as mp
+from Nsmc.src.views.ui.main_ui import Ui_MainApp as mp
 from Nsmc.src.scripts.common import open_xlsx_file as xlsx
 
 
@@ -52,7 +51,6 @@ class NEISMacro(QMainWindow, mp):
             self.infobox_title.setStyleSheet("color: rgb(52, 120, 245)")
             self.infobox_detail.setText("OK 버튼을 눌러 종료하시면 됩니다.")
 
-
         # Upload Thread Part -------------------------------------------
         def run_upload_thread(index: int = 0):
             self.infobox_title.setText("데이터를 나이스로 업로드 중입니다.")
@@ -78,7 +76,7 @@ class NEISMacro(QMainWindow, mp):
         self.Macro_push_2.clicked.connect(lambda state, index=2: run_upload_thread(index))
         self.Macro_push_3.clicked.connect(lambda state, index=3: run_upload_thread(index))
         self.Macro_push_4.clicked.connect(lambda state, index=4: run_upload_thread(index))
-        self.Macro_push_5.clicked.connect(mcr_developing_event)
+        self.Macro_push_5.clicked.connect(lambda state, index=5: run_upload_thread(index))
         # self.Macro_push_5.clicked.connect(lambda state, index=5: self.run_upload_thread(index))
 
     def init_alter_setup(self, status: str = "OFF"):
