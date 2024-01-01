@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3caa923-c79b-4d28-b6a0-f67f0a271505" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Nsmc/src/scripts/common/convert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/NEIS_Macro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NEIS_Macro.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nsmc/src/scripts/macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nsmc/src/scripts/macro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nsmc/src/scripts/upload/upload_macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nsmc/src/scripts/upload/upload_macro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nsmc/src/scripts/common/get_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nsmc/src/scripts/common/create_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nsmc/src/views/assets/main_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nsmc/src/views/assets/main_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nsmc/src/views/ui/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Nsmc/src/views/ui/main.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

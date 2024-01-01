@@ -15,7 +15,7 @@ except ImportError:
 
 
 # local packages
-from Nsmc.src.scripts.common import get_file
+from Nsmc.src.scripts.common import create_file
 from Nsmc.app import NEISMacro
 from Nsmc.src.scripts.common import get_json
 from Nsmc.src.scripts.common import convert
@@ -34,8 +34,7 @@ def my_exception_hook(exctype, value, traceback):
 if __name__ == "__main__":
     # Convert .ui/.qrc files to .py files
     convert.convert_pyqt_files(config)
-
-    get_file.create_files()
+    create_file.create_files()
 
     # Application 구성하기
     app = QApplication(sys.argv)
