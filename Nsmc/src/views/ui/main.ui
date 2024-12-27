@@ -402,7 +402,7 @@ subcontrol-origin: margin;
              </rect>
             </property>
             <property name="text">
-             <string>창체: 누가기록</string>
+             <string>창체: 5-6학년 진로</string>
             </property>
             <property name="indent">
              <number>-1</number>
@@ -424,7 +424,7 @@ subcontrol-origin: margin;
              <string notr="true">.QLabel {font: 13px &quot;나눔스퀘어&quot;; color: white;}</string>
             </property>
             <property name="text">
-             <string>자동봉직 특기사항</string>
+             <string>5-6학년 진로특기사항</string>
             </property>
             <property name="indent">
              <number>-1</number>

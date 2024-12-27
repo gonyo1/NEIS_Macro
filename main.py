@@ -33,7 +33,7 @@ def my_exception_hook(exctype, value, traceback):
 
 if __name__ == "__main__":
     # Convert .ui/.qrc files to .py files
-    convert.convert_pyqt_files(config)
+    # convert.convert_pyqt_files(config)
     create_file.create_files()
 
     # Application 구성하기
@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
     # Setup UI
     main_win = NEISMacro()
-    main_win.setWindowTitle("  NEIS Macro by Gonyo (Released 2023. 12. 20.)")
+    main_win.setWindowTitle("  NEIS Macro by Gonyo (Released 2024. 12. 17.)")
     main_win.setWindowIcon(QIcon(":/img/fox.svg"))
     main_win.show()
 
@@ -60,6 +60,6 @@ if __name__ == "__main__":
 """
 pyuic5 ./Nsmc/src/views/main.ui -o ./Nsmc/src/views/main_ui.py
 pyrcc5 ./Nsmc/src/views/main.qrc -o ./Nsmc/src/views/main_rc.py
-pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/views/fox.ico main.py
+pyinstaller -w -F --log-level=WARN --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/views/assets/fox.ico main.py
 pyinstaller -w -F --add-data="./Nsmc/src/data/*.xlsx;." --add-data="./Nsmc/src/img/*.png;." --icon=./Nsmc/src/views/fox.ico main.py
 """

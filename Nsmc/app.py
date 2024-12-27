@@ -77,7 +77,7 @@ class NEISMacro(QMainWindow, mp):
         self.Macro_push_3.clicked.connect(lambda state, index=3: run_upload_thread(index))
         self.Macro_push_4.clicked.connect(lambda state, index=4: run_upload_thread(index))
         self.Macro_push_5.clicked.connect(lambda state, index=5: run_upload_thread(index))
-        # self.Macro_push_5.clicked.connect(lambda state, index=5: self.run_upload_thread(index))
+        self.Macro_push_6.clicked.connect(lambda state, index=6: run_upload_thread(index))
 
     def init_alter_setup(self, status: str = "OFF"):
         if status == "OFF":

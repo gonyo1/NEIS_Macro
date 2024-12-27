@@ -40,7 +40,7 @@ class MacroThread(QThread):
         self.main = parent
         self.copy_entire_data_from_xlsx = []
         self.copy_data_one_student = ''
-        self.web_title = "4세대 지능형 나이스 시스템"
+        self.web_title = "4세대 나이스 시스템"
         self.init_tab_count = 0
         self.is_override = "ON"
         self.speed = 0.1
@@ -48,6 +48,17 @@ class MacroThread(QThread):
         self.eval_step_list = [1, 2, 3, 4, 5]
         self.selector = 0
         self._check_name = None
+
+    @staticmethod
+    def delete_double_space(text: str = ""):
+        text = text.strip()
+
+        while True:
+            if "  " in text:
+                text = text.replace("  ", " ")
+            else:
+                break
+        return text
 
     def run(self):
         # NEIS SELECTOR
@@ -59,7 +70,7 @@ class MacroThread(QThread):
 
         # GET DATA FROM CLIPBOARD
         data = pyperclip.paste()
-        data_list = set_copied_data_to_list(self.selector, data)
+        data_list = [self.delete_double_space(text) for text in set_copied_data_to_list(self.selector, data)]
         print(data_list)
 
         # SET INIT TAB COUNT
@@ -68,7 +79,7 @@ class MacroThread(QThread):
         # UPLOAD ONE BY ONE
         for index, data in enumerate(data_list):
             # PRESS AS NEED AS INITALIZE
-            shell.AppActivate("4세대 지능형 나이스 시스템")
+            shell.AppActivate("4세대 나이스 시스템")
             self.key_event.tab(repeat_count=self.init_tab_count)
 
             # DO TASKS BY SELECTOR NUMBER
@@ -131,9 +142,9 @@ class MacroThread(QThread):
 
                         # SAVE CLICK
                         self.key_event.space()
-                        self.key_event.sleep_seconds(0.5)
+                        self.key_event.sleep_seconds(0.3)
                         self.key_event.space()
-                        self.key_event.sleep_seconds(0.5)
+                        self.key_event.sleep_seconds(0.3)
                         self.key_event.shift_tab(repeat_count=7, slow=3)
 
                         self._check_name = check_name[:]
@@ -149,6 +160,13 @@ class MacroThread(QThread):
                 self.key_event.copy(data=data)
                 self.key_event.paste()
                 self.key_event.move_to_next_row()
+
+            elif self.selector == 6:
+                self.key_event.copy(data=data)
+                self.key_event.paste()
+                self.key_event.tab()
+                self.key_event.move_to_next_row()
+
 
         self.threadEvent.emit()
 
@@ -172,6 +190,10 @@ class MacroThread(QThread):
 
         elif selector == 5:
             print("Success105:창체:학생부자료기록 업로드를 시작합니다.")
+            return 1
+
+        elif selector == 6:
+            print("Success106:창체:5-6진로특기사항 업로드를 시작합니다.")
             return 1
 
 

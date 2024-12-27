@@ -40,6 +40,18 @@ class KeyEvent:
         pyautogui.keyUp('ctrl')
         time.sleep(self.speed)
 
+    def up(self, repeat_count: int = 1, slow: int = 1):
+        for count in range(repeat_count):
+            # press down button
+            self.shell.SendKeys('{UP}')
+            time.sleep(self.speed * slow)
+
+    def left(self, repeat_count: int = 1, slow: int = 1):
+        for count in range(repeat_count):
+            # press down button
+            self.shell.SendKeys('{LEFT}')
+            time.sleep(self.speed * slow)
+
     def down(self, repeat_count: int = 1, slow: int = 1):
         for count in range(repeat_count):
             # press down button
@@ -63,6 +75,13 @@ class KeyEvent:
             self.shell.SendKeys('+{TAB}')
             time.sleep(self.speed * slow)
 
+    def shift_tab_autogui(self, repeat_count: int = 1, slow: int = 1):
+        for count in range(repeat_count):
+            pyautogui.keyDown('shift')
+            pyautogui.press("tab")
+            pyautogui.keyUp('shift')
+            time.sleep(self.speed * slow)
+
     def select_all(self):
         pyautogui.keyDown('ctrl')
         pyautogui.press('a')
@@ -76,6 +95,10 @@ class KeyEvent:
 
     def delete(self):
         pyautogui.press('del')
+        time.sleep(self.speed)
+
+    def press_back_space(self):
+        pyautogui.press('backspace')
         time.sleep(self.speed)
 
     def space(self):
@@ -96,3 +119,16 @@ class KeyEvent:
 
     def sleep_seconds(self, second=1):
         time.sleep(self.speed * 10 * second)
+
+    def press_enter(self, repeat: int = 1):
+        for count in range(repeat):
+            pyautogui.press('enter')
+            time.sleep(self.speed * 3)
+
+    def key_up(self):
+        pyautogui.keyUp('shift')
+        pyautogui.keyUp('ctrl')
+        pyautogui.keyUp('enter')
+        pyautogui.keyUp('tab')
+
+

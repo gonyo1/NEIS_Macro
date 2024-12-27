@@ -32,7 +32,7 @@ def set_copied_data_to_list(selector: int = None, data: str = None):
 
     data = [str(i) for i in data.splitlines()]
 
-    if selector == 1 or selector == 2 or selector == 5:
+    if selector == 1 or selector == 2 or selector == 5 or selector == 6:
         return data
 
     elif selector == 3:
