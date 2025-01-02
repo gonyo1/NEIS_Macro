@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="img">
+    <file>../assets/book-solid.svg</file>
+    <file>../assets/circle-info-solid.svg</file>
+    <file>../assets/fox.ico</file>
+    <file>../assets/fox.svg</file>
+    <file>../assets/gamepad-modern.svg</file>
+    <file>../assets/image-solid.svg</file>
+    <file>../assets/image-solid-hover.svg</file>
+    <file>../assets/magnifying-glass-solid.svg</file>
+    <file>../assets/main_rc.py</file>
+    <file>../assets/Microsoft_Excel-Logo.wine.svg</file>
+    <file>../assets/python.svg</file>
+    <file>../assets/user-solid.svg</file>
+  </qresource>
+</RCC>

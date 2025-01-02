@@ -31,34 +31,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_point_geo.executor&quot;: &quot;Run&quot;,
-    &quot;Python.macro (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.post테스트.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.평가기준매크로.executor&quot;: &quot;Run&quot;,
-    &quot;Python.평가준거 업로드 파일 생성.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.학년별 평가표 만들기 (1).executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/owner/Documents/GitHub/NEIS_Macro&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.app.executor": "Run",
+    "Python.get_point_geo.executor": "Run",
+    "Python.macro (1).executor": "Run",
+    "Python.main.executor": "Debug",
+    "Python.post테스트.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.평가기준매크로.executor": "Run",
+    "Python.평가준거 업로드 파일 생성.executor": "Debug",
+    "Python.학년별 평가표 만들기 (1).executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/owner/Documents/GitHub/NEIS_Macro/src/scripts/gui/custom",
+    "settings.editor.selected.configurable": "editor.preferences.jsonOptions"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\src\scripts\gui\custom" />
+      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\src\views\font" />
+      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\src\scripts" />
       <recent name="C:\Users\Gonyo\Documents\GitHub\NEIS_Macro\Nsmc\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\Nsmc\src\img" />
+      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\src\scripts\macro" />
+      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\src\scripts\gui" />
+      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\src\__dummy__" />
       <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro" />
-      <recent name="C:\Users\남산초등학교\Documents\GitHub\NEIS_Macro\Nsmc\src\scripts" />
-      <recent name="C:\Users\Gonyo\Documents\GitHub\NEIS_Macro\Nsmc\src\data" />
-      <recent name="C:\Users\Gonyo\Documents\GitHub\NEIS_Macro\Nsmc\src" />
+      <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\Nsmc\src\img" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">

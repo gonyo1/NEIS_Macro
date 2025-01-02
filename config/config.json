@@ -1,0 +1,16 @@
+{
+    "AppName": "FriendsNetwork",
+    "Version": "1.0",
+    "Contributors": [
+        "Kim. TaeHa",
+        "Ahn. JongHo",
+        "Park. EunMi"
+    ],
+    "FontFamily": [
+        "Pretendard",
+        "FontAwesome"
+    ],
+    "AppDatas": {
+        "Theme": "main_light"
+    }
+}

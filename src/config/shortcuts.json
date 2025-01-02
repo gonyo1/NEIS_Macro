@@ -1,0 +1,64 @@
+{
+    "행발:종합의견": {
+        "title": "행발:종합의견",
+        "description": "학기말 종합 평가",
+        "icon": "user-solid.svg",
+        "background": "rgb(230, 111, 85)",
+        "macro": [
+            ["copy", 0],
+            ["paste", 0],
+            ["move_to_next_row", 0]
+        ]
+    },
+    "교과:학기말종합의견": {
+        "title": "교과:학기말종합의견",
+        "description": "과목별 교과 평가",
+        "icon": "book-solid.svg",
+        "background": "rgb(188, 118, 190)",
+        "macro": [
+            ["copy", 0],
+            ["paste", 0],
+            ["move_to_next_row", 0]
+        ]
+    },
+    "행발:누가기록": {
+        "title": "행발:누가기록",
+        "description": "학생의 행동특성 누가기록",
+        "icon": "user-solid.svg",
+        "background": "rgb(230, 111, 85)",
+        "macro": ["stacked_evaluation", 0]
+    },
+    "교과:성취기준별 평가": {
+        "title": "교과:성취기준별 평가",
+        "description": "교과별 상중하 입력",
+        "icon": "book-solid.svg",
+        "background": "rgb(88, 118, 190)",
+        "macro": [
+            ["down", 3],
+            ["tab", 2]
+        ]
+    },
+    "창체:학생부자료기록": {
+        "title": "창체:학생부자료기록",
+        "description": "자동봉진 특기사항",
+        "icon": "gamepad-modern.svg",
+        "background": "rgb(105, 162, 75)",
+        "macro": [
+            ["copy", 0],
+            ["paste", 0],
+            ["move_to_next_row", 0]
+        ]
+    },
+    "창체:학생부자료기록": {
+        "title": "창체:5-6학년진로",
+        "description": "5-6학년 진로특기사항",
+        "icon": "gamepad-modern.svg",
+        "background": "rgb(105, 162, 75)",
+        "macro": [
+            ["copy", 0],
+            ["paste", 0],
+            ["tab", 0],
+            ["move_to_next_row", 0]
+        ]
+    }
+}

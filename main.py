@@ -1,46 +1,41 @@
 # python internal packages
 import os, sys
 import ctypes
+from glob import glob
 
 # python external packages
 try:
-    from PyQt5.QtGui import QIcon
+    from PyQt5.QtGui import QIcon, QFontDatabase
     from PyQt5.QtWidgets import QApplication
-    from PyQt5.QtCore import Qt
+    from PyQt5.QtCore import Qt, QCoreApplication
 except ImportError:
     os.system("pip install pyqt5 pyqt5-tools")
-    from PyQt5.QtGui import QIcon
+    from PyQt5.QtGui import QIcon, QFontDatabase
     from PyQt5.QtWidgets import QApplication
-    from PyQt5.QtCore import Qt
+    from PyQt5.QtCore import Qt, QCoreApplication
 
 
 # local packages
-from Nsmc.src.scripts.common import create_file
-from Nsmc.app import NEISMacro
-from Nsmc.src.scripts.common import get_json
-from Nsmc.src.scripts.common import convert
+# from src.scripts.common import create_file
+from src.scripts.common import common_json
+from src.scripts.common import common_path
+from src.scripts.common import common_convert
 
+from src.scripts.gui.app import NEISMacro
 
 # Set Initial configuration
-config = get_json.load_json_file("config.json")
-
-
-def my_exception_hook(exctype, value, traceback):
-    print(exctype, value, traceback)
-    sys._excepthook(exctype, value, traceback)
-    # sys.exit(1)
+config = common_json.load_json_file("config.json")
 
 
 if __name__ == "__main__":
-    # Convert .ui/.qrc files to .py files
-    # convert.convert_pyqt_files(config)
-    create_file.create_files()
-
-    # Application 구성하기
+    # Setup QApplication
     app = QApplication(sys.argv)
     app.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
     app.setAttribute(Qt.AA_EnableHighDpiScaling)
     app.setAttribute(Qt.AA_UseHighDpiPixmaps)
+
+    for font in glob(common_path.get_join_path("src/views/font/*.ttf")):
+        QFontDatabase.addApplicationFont(font)
 
     # Window에서 Icon 설정하기
     myappid = 'GangwonSWEET.FriendsNetwork.Python.ver1'
@@ -48,13 +43,9 @@ if __name__ == "__main__":
 
     # Setup UI
     main_win = NEISMacro()
-    main_win.setWindowTitle("  NEIS Macro by Gonyo (Released 2024. 12. 17.)")
-    main_win.setWindowIcon(QIcon(":/img/fox.svg"))
     main_win.show()
 
     # Logger 연결하기
-    sys._excepthook = sys.excepthook
-    sys.excepthook = my_exception_hook
     sys.exit(app.exec_())
 
 """
