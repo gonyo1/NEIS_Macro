@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3caa923-c79b-4d28-b6a0-f67f0a271505" name="Changes" comment="" />
+    <list default="true" id="e3caa923-c79b-4d28-b6a0-f67f0a271505" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pyinstaller_neis_macro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scripts/gui/custom/QMacroButton.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scripts/gui/gui_common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scripts/gui/gui_macro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scripts/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/shortcuts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/shortcuts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/_common/open_xlsx_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/_common/open_xlsx_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/common/common_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/common/common_json.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/common/common_logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/common/common_logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/gui/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/gui/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/gui/custom/QSideGrip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/assets/gamepad-modern.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/assets/gamepad-modern.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ui/main.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ui/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ui/main_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ui/main_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main_ui.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,8 +55,9 @@
   "keyToString": {
     "Python.app.executor": "Run",
     "Python.get_point_geo.executor": "Run",
+    "Python.index.executor": "Run",
     "Python.macro (1).executor": "Run",
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "Python.post테스트.executor": "Run",
     "Python.test.executor": "Run",
     "Python.평가기준매크로.executor": "Run",
@@ -64,7 +85,7 @@
       <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\Nsmc\src\img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.index">
     <configuration name="평가준거 업로드 파일 생성" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NEIS_Macro" />
       <option name="ENV_FILES" value="" />
@@ -131,7 +152,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="index" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NEIS_Macro" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,7 +165,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\sksgm\OneDrive\문서\GitHub\NEIS_Macro\index.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,7 +198,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
+        <item itemvalue="Python.index" />
         <item itemvalue="Python.평가기준매크로" />
         <item itemvalue="Python.get_point_geo" />
         <item itemvalue="Python.평가준거 업로드 파일 생성" />
@@ -188,7 +209,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>

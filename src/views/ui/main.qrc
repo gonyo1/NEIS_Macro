@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="img">
+    <file>../assets/info-filled.svg</file>
     <file>../assets/book-solid.svg</file>
     <file>../assets/circle-info-solid.svg</file>
     <file>../assets/fox.ico</file>

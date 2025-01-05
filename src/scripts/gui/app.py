@@ -3,51 +3,32 @@ import os
 
 
 # local packages
-from src.scripts.macro import macro as mc
-from src.views.ui.main_ui import Ui_MainApp as mp
-from src.scripts.gui.custom.QSideGrip import QSideGrip
-# from src.scripts.common import open_xlsx_file as xlsx
-
+from src.scripts.common import common_path
+from src.scripts.gui.gui_macro import MacroPage
 
 # python external packages
-from PyQt5.QtWidgets import QMainWindow, QApplication, QSizeGrip
-from PyQt5.QtCore import Qt, QPoint, QRect, QEvent, QSize, QRectF
+from PyQt5.QtWidgets import QMainWindow, QApplication, QSizeGrip, QPushButton
+from PyQt5.QtCore import Qt, QPoint, QRect, QEvent, QSize, QRectF, pyqtSignal
 from PyQt5.Qt import QMouseEvent, QIcon
 
 
-class NEISMacro(QMainWindow, mp):
+class NEISMacro(MacroPage):
     is_program_opened = "OFF"
     gripSize = 10
     grip_point = None
     side_grips = list()
     grips = list()
 
+    # MainWindow 전체에서 사용할 시그널 그룹
+
     def __init__(self, main_app: QApplication = None, config: dict = None):
         # Overloading MainWindow
         super().__init__()
 
-        # Macro Class
-        self.mcr_object = mc.MacroThread(self)
-
         # Initialize Setup
-        self.setupUi(self)
-        self.set_grip_points()
         self.set_window_flags()
         self.init_gui_setup()
         self.init_set_signal()
-
-    def set_grip_points(self):
-        self.side_grips = [
-            QSideGrip(self, Qt.LeftEdge),
-            QSideGrip(self, Qt.TopEdge),
-            QSideGrip(self, Qt.RightEdge),
-            QSideGrip(self, Qt.BottomEdge),
-        ]
-
-        for i in range(4):
-            grip = QSizeGrip(self)
-            grip.resize(self.gripSize, self.gripSize)
-            self.grips.append(grip)
 
     def set_window_flags(self):
         self.setWindowTitle("NEIS Macro")
@@ -55,37 +36,30 @@ class NEISMacro(QMainWindow, mp):
         self.setWindowFlags(Qt.Window | Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
 
-    def mousePressEvent(self, event):
-        self.grip_point = event.globalPos()
-
-    def mouseMoveEvent(self, event):
-        def is_window_bar():
-            return self.grip_point.y() - self.y() < 36
-
-        def is_maximized():
-            return self.isMaximized()
-
-        # 상단 바 제외 MoveEvent 무시
-        try:
-            if is_window_bar():
-                if is_maximized():
-                    self.showNormal()
-                    self.maximize.setText("")
-                    self.setGeometry(self.maximized_geometry)
-                delta = QPoint(event.globalPos() - self.grip_point)
-                self.move(self.x() + delta.x(), self.y() + delta.y())
-                self.grip_point = event.globalPos()
-        except (AttributeError, TypeError):
-            pass
-
-
     def init_gui_setup(self):
         def init_window_setup():
             self.infobox_title.original_stylesheet = self.infobox_title.styleSheet()
 
+        def init_pushbutton_handler():
+            for button in self.findChildren(QPushButton):
+                button.setCursor(Qt.PointingHandCursor)
+
+        def init_app_icon_setting():
+            self.setWindowIcon(QIcon(os.path.join(common_path.get_join_path("src/views/assets"), "fox.ico")))
+
         init_window_setup()
+        init_pushbutton_handler()
+        init_app_icon_setting()
 
     def init_set_signal(self):
+        def open_tutorial_image():
+            path = common_path.get_join_path("src/img/howtocopy.png")
+            os.startfile(path)
+
+        def open_xlsx_folder():
+            origin_dir = common_path.get_join_path("src/data")
+            os.startfile(origin_dir)
+
         # Macro Part -------------------------------------------
         def mcr_end_event():
             self.init_alter_setup("OFF")
@@ -113,10 +87,10 @@ class NEISMacro(QMainWindow, mp):
             self.mcr_object.start()
 
         # Get xlsx file Slot
-        # self.Form_downbar_get.clicked.connect(lambda: xlsx.open_xlsx_file())
+        self.Form_downbar_get.clicked.connect(lambda: open_xlsx_folder())
 
         # Tutorial Slot
-        self.Tutorial_Push.clicked.connect(lambda: self.open_tutorial_page())
+        self.Form_info_get.clicked.connect(lambda: open_tutorial_image())
 
         # Macro Clicked Slot
         self.mcr_object.threadEvent.connect(lambda: mcr_developing_event())  # When Macro Started
@@ -142,7 +116,18 @@ class NEISMacro(QMainWindow, mp):
             self.black.raise_()
             self.black.show()
 
-    @staticmethod
-    def open_tutorial_page():
-        path = os.path.realpath("./Nsmc/src/img/howtocopy.png")
-        os.startfile(path)
+    def mousePressEvent(self, event):
+        self.grip_point = event.globalPos()
+
+    def mouseMoveEvent(self, event):
+        def is_window_bar():
+            return self.grip_point.y() - self.y() < 36
+
+        # 상단 바 제외 MoveEvent 무시
+        try:
+            if is_window_bar():
+                delta = QPoint(event.globalPos() - self.grip_point)
+                self.move(self.x() + delta.x(), self.y() + delta.y())
+                self.grip_point = event.globalPos()
+        except (AttributeError, TypeError):
+            pass

@@ -16,7 +16,7 @@
 ```
     import sys
     from PyQt5.QtWidgets import QApplication, QMainWindow
-    from error_logging import exception_hook, setup_logger, log_error
+    from common_logger import exception_hook, setup_logger, log_error, about_to_quit
 
     def main():
         # 로거 설정
@@ -70,6 +70,9 @@ def setup_logger(name, log_file, level=logging.INFO):
     logger.setLevel(level)
 
     # 파일 핸들러 및 콘솔 핸들러 생성
+    log_dir = os.path.dirname(log_file)
+    if log_dir and not os.path.exists(log_dir):
+        os.makedirs(log_dir)
     file_handler = logging.FileHandler(log_file)
     stream_handler = logging.StreamHandler()
 

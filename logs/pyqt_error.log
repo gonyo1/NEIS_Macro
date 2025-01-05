@@ -1,0 +1,58 @@
+[2025-01-05 12:40:54,844 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'resized'
+NoneType: None
+[2025-01-05 12:40:54,844 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'resized'
+NoneType: None
+[2025-01-05 12:47:11,226 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute '_Background'
+NoneType: None
+[2025-01-05 12:47:11,226 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute '_Background'
+NoneType: None
+[2025-01-05 12:47:56,769 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'repaint_pixmap'
+NoneType: None
+[2025-01-05 12:47:56,769 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'repaint_pixmap'
+NoneType: None
+[2025-01-05 13:48:00,131 | ERROR] - Unhandled exception occurred - Exception: setCurrentWidget(self, w: Optional[QWidget]): argument 1 has unexpected type 'int'
+NoneType: None
+[2025-01-05 13:48:00,131 | ERROR] - Unhandled exception occurred - Exception: setCurrentWidget(self, w: Optional[QWidget]): argument 1 has unexpected type 'int'
+NoneType: None
+[2025-01-05 13:48:00,915 | ERROR] - Unhandled exception occurred - Exception: setCurrentWidget(self, w: Optional[QWidget]): argument 1 has unexpected type 'int'
+NoneType: None
+[2025-01-05 13:48:00,915 | ERROR] - Unhandled exception occurred - Exception: setCurrentWidget(self, w: Optional[QWidget]): argument 1 has unexpected type 'int'
+NoneType: None
+[2025-01-05 13:48:00,915 | ERROR] - Unhandled exception occurred - Exception: setCurrentWidget(self, w: Optional[QWidget]): argument 1 has unexpected type 'int'
+NoneType: None
+[2025-01-05 13:51:41,575 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'window_minimize'
+NoneType: None
+[2025-01-05 13:51:41,575 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'window_minimize'
+NoneType: None
+[2025-01-05 13:51:45,070 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'window_minimize'
+NoneType: None
+[2025-01-05 13:51:45,070 | ERROR] - Unhandled exception occurred - Exception: 'NEISMacro' object has no attribute 'window_minimize'
+NoneType: None
+[2025-01-05 14:36:46,218 | ERROR] - Unhandled exception occurred - Exception: invalid literal for int() with base 10: '(230'
+NoneType: None
+[2025-01-05 14:36:46,218 | ERROR] - Unhandled exception occurred - Exception: invalid literal for int() with base 10: '(230'
+NoneType: None
+[2025-01-05 14:40:05,878 | ERROR] - Unhandled exception occurred - Exception: 'QMacroButton' object has no attribute 'Macrobar_grid'
+NoneType: None
+[2025-01-05 14:40:05,878 | ERROR] - Unhandled exception occurred - Exception: 'QMacroButton' object has no attribute 'Macrobar_grid'
+NoneType: None
+[2025-01-05 14:40:16,384 | ERROR] - Unhandled exception occurred - Exception: tuple index out of range
+NoneType: None
+[2025-01-05 14:40:16,384 | ERROR] - Unhandled exception occurred - Exception: tuple index out of range
+NoneType: None
+[2025-01-05 14:40:37,693 | ERROR] - Unhandled exception occurred - Exception: tuple index out of range
+NoneType: None
+[2025-01-05 14:40:37,693 | ERROR] - Unhandled exception occurred - Exception: tuple index out of range
+NoneType: None
+[2025-01-05 15:33:35,087 | ERROR] - Unhandled exception occurred - Exception: unsupported operand type(s) for /: 'str' and 'int'
+NoneType: None
+[2025-01-05 15:33:35,087 | ERROR] - Unhandled exception occurred - Exception: unsupported operand type(s) for /: 'str' and 'int'
+NoneType: None
+[2025-01-05 15:42:27,367 | ERROR] - Unhandled exception occurred - Exception: [WinError 2] 지정된 파일을 찾을 수 없습니다: 'C:\\Users\\sksgm\\OneDrive\\문서\\GitHub\\NEIS_Macro\\Nsmc\\src\\data'
+NoneType: None
+[2025-01-05 15:42:27,367 | ERROR] - Unhandled exception occurred - Exception: [WinError 2] 지정된 파일을 찾을 수 없습니다: 'C:\\Users\\sksgm\\OneDrive\\문서\\GitHub\\NEIS_Macro\\Nsmc\\src\\data'
+NoneType: None
+[2025-01-05 15:47:36,453 | ERROR] - Unhandled exception occurred - Exception: 
+NoneType: None
+[2025-01-05 15:47:36,453 | ERROR] - Unhandled exception occurred - Exception: 
+NoneType: None

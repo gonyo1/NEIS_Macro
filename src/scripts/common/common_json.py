@@ -6,7 +6,7 @@ from . import common_info
 
 def get_directory(dirname: str) -> str:
     # if darwin system, then add .replace("\\", "/") for linux
-    return os.path.join(common_path.get_join_path("config"), dirname)
+    return os.path.join(common_path.get_join_path("src/config"), dirname)
 
 
 def export_json_file(path: str, data: dict):
