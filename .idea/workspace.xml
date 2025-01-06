@@ -5,24 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3caa923-c79b-4d28-b6a0-f67f0a271505" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pyinstaller_neis_macro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/gui/custom/QMacroButton.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/gui/gui_common.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/gui/gui_macro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scripts/create_files.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/shortcuts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/pyqt_error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/pyqt_error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/shortcuts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/shortcuts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/_common/open_xlsx_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/_common/open_xlsx_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/common/common_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/common/common_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/common/common_logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/common/common_logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scripts/gui/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/gui/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/gui/custom/QSideGrip.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/assets/gamepad-modern.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/assets/gamepad-modern.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui/main.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/gui/custom/QMacroButton.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/gui/custom/QMacroButton.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/gui/gui_macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/gui/gui_macro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/macro/macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/macro/macro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/ui/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui/main_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main_rc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/ui/main_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ui/main_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,25 +46,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.app.executor": "Run",
-    "Python.get_point_geo.executor": "Run",
-    "Python.index.executor": "Run",
-    "Python.macro (1).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.post테스트.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.평가기준매크로.executor": "Run",
-    "Python.평가준거 업로드 파일 생성.executor": "Debug",
-    "Python.학년별 평가표 만들기 (1).executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/owner/Documents/GitHub/NEIS_Macro/src/scripts/gui/custom",
-    "settings.editor.selected.configurable": "editor.preferences.jsonOptions"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_point_geo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.index.executor&quot;: &quot;Run&quot;,
+    &quot;Python.macro (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.post테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.평가기준매크로.executor&quot;: &quot;Run&quot;,
+    &quot;Python.평가준거 업로드 파일 생성.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.학년별 평가표 만들기 (1).executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/owner/Documents/GitHub/NEIS_Macro/src/scripts/gui/custom&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.jsonOptions&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\owner\Documents\GitHub\NEIS_Macro\src\scripts\gui\custom" />

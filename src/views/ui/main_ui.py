@@ -40,32 +40,50 @@ class Ui_MainApp(object):
         self.black.setEnabled(False)
         self.black.setGeometry(QtCore.QRect(0, 0, 500, 900))
         self.black.setStyleSheet("#black {\n"
-"    background: rgba(0,0,0,180);\n"
+"    background: rgba(0, 0, 0, 180);\n"
 "}\n"
-"#infobox {background: white; border-radius: 20px;}\n"
-"#infobox_title {font:17px; color: \"#ff3227\"}\n"
-"#infobox_detail {font:17px; color: \"#8b8b8f\"}\n"
-"#infobox_confirm {background: transparent; font: 20px \"나눔스퀘어 ExtraBold\"; color:rgb(52, 120, 245)}\n"
-"#infobox_confirm:hover {color:rgba(52, 120, 245, 100)}")
+"#infobox {\n"
+"    background: white; \n"
+"    border-radius: 20px;\n"
+"}\n"
+"#infobox_title {\n"
+"    font:18px; \n"
+"    font-weight: bold;\n"
+"    color: #ff3227;\n"
+"}\n"
+"#infobox_detail {\n"
+"    font:12px; \n"
+"    color: #8b8b8f;\n"
+"}\n"
+"#infobox_confirm {\n"
+"    background: transparent; \n"
+"    font: 20px;\n"
+"    font-weight: 700;\n"
+"    color:rgb(52, 120, 245)\n"
+"}\n"
+"#infobox_confirm:hover {\n"
+"    color:rgba(52, 120, 245, 100)\n"
+"}")
         self.black.setObjectName("black")
         self.infobox = QtWidgets.QWidget(self.black)
         self.infobox.setGeometry(QtCore.QRect(60, 270, 381, 201))
         self.infobox.setObjectName("infobox")
         self.line = QtWidgets.QFrame(self.infobox)
-        self.line.setGeometry(QtCore.QRect(0, 120, 381, 16))
+        self.line.setGeometry(QtCore.QRect(0, 140, 381, 2))
+        self.line.setStyleSheet("height: 1px; background-color: white;")
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.infobox_title = QtWidgets.QLabel(self.infobox)
-        self.infobox_title.setGeometry(QtCore.QRect(0, 40, 381, 20))
+        self.infobox_title.setGeometry(QtCore.QRect(0, 50, 381, 20))
         self.infobox_title.setTextFormat(QtCore.Qt.AutoText)
         self.infobox_title.setAlignment(QtCore.Qt.AlignCenter)
         self.infobox_title.setObjectName("infobox_title")
         self.infobox_confirm = QtWidgets.QPushButton(self.infobox)
-        self.infobox_confirm.setGeometry(QtCore.QRect(0, 128, 381, 71))
+        self.infobox_confirm.setGeometry(QtCore.QRect(0, 142, 381, 60))
         self.infobox_confirm.setObjectName("infobox_confirm")
         self.infobox_detail = QtWidgets.QLabel(self.infobox)
-        self.infobox_detail.setGeometry(QtCore.QRect(0, 70, 381, 20))
+        self.infobox_detail.setGeometry(QtCore.QRect(0, 75, 381, 20))
         self.infobox_detail.setTextFormat(QtCore.Qt.AutoText)
         self.infobox_detail.setAlignment(QtCore.Qt.AlignCenter)
         self.infobox_detail.setObjectName("infobox_detail")
@@ -374,7 +392,7 @@ class Ui_MainApp(object):
 "    border: 0px solid #c3c3c3;\n"
 "    background:white;\n"
 "    width:10px;\n"
-"    margin: 10px 4px 10px 0px;\n"
+"    margin: 30px 4px 30px 0px;\n"
 "}\n"
 ".QScrollArea .QScrollBar::handle:vertical {\n"
 "    min-height: 0px;\n"
@@ -407,16 +425,16 @@ class Ui_MainApp(object):
         self.MacroName.setObjectName("MacroName")
         self.verticalLayout_2.addWidget(self.MacroName)
         self.Macrobar_scroll = QtWidgets.QScrollArea(self.Macro)
-        self.Macrobar_scroll.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.Macrobar_scroll.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.Macrobar_scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.Macrobar_scroll.setWidgetResizable(True)
         self.Macrobar_scroll.setObjectName("Macrobar_scroll")
         self.Macrobar_grid = QtWidgets.QWidget()
-        self.Macrobar_grid.setGeometry(QtCore.QRect(0, 0, 370, 608))
+        self.Macrobar_grid.setGeometry(QtCore.QRect(0, 0, 380, 608))
         self.Macrobar_grid.setStyleSheet("")
         self.Macrobar_grid.setObjectName("Macrobar_grid")
         self.Macrobar_grid_layout = QtWidgets.QGridLayout(self.Macrobar_grid)
-        self.Macrobar_grid_layout.setContentsMargins(10, 10, 10, 10)
+        self.Macrobar_grid_layout.setContentsMargins(30, 30, 30, 30)
         self.Macrobar_grid_layout.setSpacing(10)
         self.Macrobar_grid_layout.setObjectName("Macrobar_grid_layout")
         self.Macrobar_scroll.setWidget(self.Macrobar_grid)

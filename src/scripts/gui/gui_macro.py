@@ -48,6 +48,17 @@ class MacroPage(NEISMacroProgram, QMainWindow, mp):
         init_stacked_widget_page_signal()
         init_window_bar_signal()
 
+    def run_upload_thread(self, index: int = 0):
+        print(index)
+        self.black.raise_()
+        self.infobox_title.setText("데이터를 나이스로 업로드 중입니다.")
+        self.infobox_title.setStyleSheet("color: rgb(52, 120, 245)")
+        self.infobox_detail.setText("업로드 중에 조작은 오류를 발생시킬 수 있습니다.")
+
+        self.init_alter_setup("ON")
+        self.mcr_object.selector = index
+        self.mcr_object.start()
+
     def init_gui_setting(self):
         def create_macro_buttons():
             def get_color_tuple(text):
@@ -71,9 +82,13 @@ class MacroPage(NEISMacroProgram, QMainWindow, mp):
                 button.Macro_labels.setText(button_data["title"])
                 button.Macro_describes.setText(button_data["description"])
                 button.Macro_icon.setStyleSheet(f"border-image: url(:/img/assets/{button_data['icon']});")
-                button_list.append(button)
+                button.Macro_push.clicked.connect(
+                    lambda num=int(button.Macro_items.objectName().rstrip("_")[-1]): self.run_upload_thread(index=num))
+
+                button_list.append([button, button_data["title"], button_data["macro"]])
                 button_index += 1
 
+            print(button_list)
             spacerItem = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
             self.Macrobar_grid_layout.addItem(spacerItem, button_index//2 + 1, 0, 1, 1)
 

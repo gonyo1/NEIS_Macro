@@ -5,11 +5,6 @@ sys.path.append(os.path.dirname(__file__))
 
 
 # local packages
-# from src.scripts.common import create_file
-from src.scripts.common import common_json
-from src.scripts.common import common_path
-from src.scripts.common import common_convert
-from src.scripts.gui.app import NEISMacro
 from src.scripts import setup
 from src.scripts.common.common_logger import exception_hook, setup_logger, log_error, about_to_quit
 

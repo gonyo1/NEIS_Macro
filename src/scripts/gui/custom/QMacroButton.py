@@ -9,38 +9,38 @@ class QMacroButton(QPushButton):
 
         # 기본 Widget 생성
         self.Macro_items = QWidget(parent)
-        self.Macro_items.setMinimumSize(QSize(170, 130))
-        self.Macro_items.setMaximumSize(QSize(180, 130))
-        self.Macro_items.setStyleSheet(f"#Macro_items "
+        self.Macro_items.setMinimumSize(QSize(158, 110))
+        self.Macro_items.setMaximumSize(QSize(180, 110))
+        self.Macro_items.setStyleSheet(f"#Macro_items_{str(index)} "
                                        f"    {{background: rgb({color[0]}, {color[1]}, {color[2]});"
                                        f"}}\n"
-                                       f"#Macro_items:hover "
+                                       f"#Macro_items_{str(index)}:hover "
                                        f"    {{background:  rgba({color[0]}, {color[1]}, {color[2]}, 200);"
                                        f"}}")
-        self.Macro_items.setObjectName("Macro_items")
+        self.Macro_items.setObjectName(f"Macro_items_{str(index)}")
 
         # PushButton 생성
         self.Macro_push = QPushButton(self.Macro_items)
-        self.Macro_push.setGeometry(QRect(0, 0, 170, 130))
-        self.Macro_push.setMinimumSize(QSize(170, 130))
-        self.Macro_push.setMaximumSize(QSize(180, 130))
+        self.Macro_push.setGeometry(QRect(0, 0, 158, 110))
+        self.Macro_push.setMinimumSize(QSize(158, 110))
+        self.Macro_push.setMaximumSize(QSize(180, 110))
         self.Macro_push.setStyleSheet("")
         self.Macro_push.setText("")
-        self.Macro_push.setObjectName("Macro_push")
+        self.Macro_push.setObjectName(f"Macro_push_{str(index)}")
 
         # Label Text 생성
         self.Macro_labels = QLabel(self.Macro_items)
         self.Macro_labels.setEnabled(False)
-        self.Macro_labels.setGeometry(QRect(16, 65, 140, 21))
-        self.Macro_labels.setStyleSheet(f"QLabel {{font: 16px; font-weight: bold; color: {self.foreground_color(color)};}}")
+        self.Macro_labels.setGeometry(QRect(16, 65, 120, 21))
+        self.Macro_labels.setStyleSheet("QLabel {font: 14px; font-weight: bold; color: white;}")
         self.Macro_labels.setIndent(-1)
-        self.Macro_labels.setObjectName("Macro_labels")
+        self.Macro_labels.setObjectName(f"Macro_labels_{str(index)}")
 
         # Description Text 생성
         self.Macro_describes = QLabel(self.Macro_items)
         self.Macro_describes.setEnabled(False)
-        self.Macro_describes.setGeometry(QRect(16, 85, 140, 21))
-        self.Macro_describes.setStyleSheet(f"QLabel {{font: 10px; color: {self.foreground_color(color)};}}")
+        self.Macro_describes.setGeometry(QRect(16, 80, 120, 21))
+        self.Macro_describes.setStyleSheet("QLabel {font: 10px; color: white;}}")
         self.Macro_describes.setIndent(-1)
         self.Macro_describes.setObjectName("Macro_describes")
 
@@ -60,11 +60,3 @@ class QMacroButton(QPushButton):
 
         # Append Macro Button to Macro bar Layout
         layout.addWidget(self.Macro_items, index//2, index % 2, 1, 1)
-
-    @staticmethod
-    def foreground_color(color: tuple = None):
-        yiq = (int(color[0]) * 299 + int(color[1]) * 587 + int(color[2]) * 114) / 1000
-        if yiq >= 128:
-            return "black"
-        else:
-            return "white"

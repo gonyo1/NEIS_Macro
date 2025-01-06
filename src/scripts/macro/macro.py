@@ -70,7 +70,10 @@ class MacroThread(QThread):
 
         # GET DATA FROM CLIPBOARD
         data = pyperclip.paste()
-        data_list = [self.delete_double_space(text) for text in set_copied_data_to_list(self.selector, data)]
+        try:
+            data_list = [self.delete_double_space(text) for text in set_copied_data_to_list(self.selector, data)]
+        except TypeError:
+            return
         print(data_list)
 
         # SET INIT TAB COUNT

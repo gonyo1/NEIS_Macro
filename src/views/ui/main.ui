@@ -59,13 +59,30 @@ QObject {
     </property>
     <property name="styleSheet">
      <string notr="true">#black {
-	background: rgba(0,0,0,180);
+	background: rgba(0, 0, 0, 180);
 }
-#infobox {background: white; border-radius: 20px;}
-#infobox_title {font:17px; color: &quot;#ff3227&quot;}
-#infobox_detail {font:17px; color: &quot;#8b8b8f&quot;}
-#infobox_confirm {background: transparent; font: 20px &quot;나눔스퀘어 ExtraBold&quot;; color:rgb(52, 120, 245)}
-#infobox_confirm:hover {color:rgba(52, 120, 245, 100)}</string>
+#infobox {
+	background: white; 
+	border-radius: 20px;
+}
+#infobox_title {
+	font:18px; 
+	font-weight: bold;
+	color: #ff3227;
+}
+#infobox_detail {
+	font:12px; 
+	color: #8b8b8f;
+}
+#infobox_confirm {
+	background: transparent; 
+	font: 20px;
+	font-weight: 700;
+	color:rgb(52, 120, 245)
+}
+#infobox_confirm:hover {
+	color:rgba(52, 120, 245, 100)
+}</string>
     </property>
     <widget class="QWidget" name="infobox" native="true">
      <property name="geometry">
@@ -80,10 +97,13 @@ QObject {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>120</y>
+        <y>140</y>
         <width>381</width>
-        <height>16</height>
+        <height>2</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">height: 1px; background-color: white;</string>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -93,7 +113,7 @@ QObject {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>40</y>
+        <y>50</y>
         <width>381</width>
         <height>20</height>
        </rect>
@@ -112,9 +132,9 @@ QObject {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>128</y>
+        <y>142</y>
         <width>381</width>
-        <height>71</height>
+        <height>60</height>
        </rect>
       </property>
       <property name="text">
@@ -125,7 +145,7 @@ QObject {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>70</y>
+        <y>75</y>
         <width>381</width>
         <height>20</height>
        </rect>
@@ -725,7 +745,7 @@ QPushButton:hover {
 	border: 0px solid #c3c3c3;
 	background:white;
 	width:10px;
-	margin: 10px 4px 10px 0px;
+	margin: 30px 4px 30px 0px;
 }
 .QScrollArea .QScrollBar::handle:vertical {
 	min-height: 0px;
@@ -782,7 +802,7 @@ QPushButton:hover {
         <item>
          <widget class="QScrollArea" name="Macrobar_scroll">
           <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOn</enum>
+           <enum>Qt::ScrollBarAsNeeded</enum>
           </property>
           <property name="horizontalScrollBarPolicy">
            <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -795,7 +815,7 @@ QPushButton:hover {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>370</width>
+             <width>380</width>
              <height>608</height>
             </rect>
            </property>
@@ -804,16 +824,16 @@ QPushButton:hover {
            </property>
            <layout class="QGridLayout" name="Macrobar_grid_layout" rowstretch="0" columnstretch="0">
             <property name="leftMargin">
-             <number>10</number>
+             <number>30</number>
             </property>
             <property name="topMargin">
-             <number>10</number>
+             <number>30</number>
             </property>
             <property name="rightMargin">
-             <number>10</number>
+             <number>30</number>
             </property>
             <property name="bottomMargin">
-             <number>10</number>
+             <number>30</number>
             </property>
             <property name="spacing">
              <number>10</number>

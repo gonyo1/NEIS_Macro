@@ -96,14 +96,6 @@ class NEISMacro(MacroPage):
         self.mcr_object.threadEvent.connect(lambda: mcr_developing_event())  # When Macro Started
         self.infobox_confirm.clicked.connect(mcr_end_event)  # Macro [OK] Button clicked
 
-        # Macro Slots
-        # self.Macro_push_1.clicked.connect(lambda state, index=1: run_upload_thread(index))
-        # self.Macro_push_2.clicked.connect(lambda state, index=2: run_upload_thread(index))
-        # self.Macro_push_3.clicked.connect(lambda state, index=3: run_upload_thread(index))
-        # self.Macro_push_4.clicked.connect(lambda state, index=4: run_upload_thread(index))
-        # self.Macro_push_5.clicked.connect(lambda state, index=5: run_upload_thread(index))
-        # self.Macro_push_6.clicked.connect(lambda state, index=6: run_upload_thread(index))
-
     def init_alter_setup(self, status: str = "OFF"):
         if status == "OFF":
             self.infobox_title.setStyleSheet(self.infobox_title.original_stylesheet)

@@ -18,6 +18,7 @@ except ImportError:
 
 # local packages
 # from src.scripts.common import create_file
+from src.scripts.create_files import create_files
 from src.scripts.common import common_json
 from src.scripts.common import common_path
 from src.scripts.common import common_convert
@@ -75,5 +76,6 @@ def setup_main_app():
     app = set_app_object()
     set_font_cache()
     set_process_id()
+    create_files()
 
     return app

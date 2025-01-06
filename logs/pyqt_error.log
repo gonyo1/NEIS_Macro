@@ -56,3 +56,31 @@ NoneType: None
 NoneType: None
 [2025-01-05 15:47:36,453 | ERROR] - Unhandled exception occurred - Exception: 
 NoneType: None
+[2025-01-06 00:56:05,539 | ERROR] - Unhandled exception occurred - Exception: string index out of range
+NoneType: None
+[2025-01-06 00:56:05,539 | ERROR] - Unhandled exception occurred - Exception: string index out of range
+NoneType: None
+[2025-01-06 00:56:29,965 | ERROR] - Unhandled exception occurred - Exception: string index out of range
+NoneType: None
+[2025-01-06 00:56:29,965 | ERROR] - Unhandled exception occurred - Exception: string index out of range
+NoneType: None
+[2025-01-06 00:58:31,416 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 00:58:31,416 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 00:58:48,373 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 00:58:48,373 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 01:04:58,824 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 01:04:58,824 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 01:06:47,956 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 01:06:47,956 | ERROR] - Unhandled exception occurred - Exception: 'NoneType' object is not iterable
+NoneType: None
+[2025-01-06 01:08:49,031 | ERROR] - Unhandled exception occurred - Exception: 
+NoneType: None
+[2025-01-06 01:08:49,031 | ERROR] - Unhandled exception occurred - Exception: 
+NoneType: None
